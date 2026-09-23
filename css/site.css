@@ -1,0 +1,340 @@
+/* catarinaleitao.net — folha de estilo comum
+   Uma só folha para todas as páginas. As cores e medidas estão
+   nas variáveis abaixo: mudar aqui muda o site inteiro. */
+
+:root {
+  --papel: #fafaf8;
+  --tinta: #1d1d1b;
+  --cinza: #6e6e69;
+  --linha: #dcdcd6;
+  --fundo-img: #ececea;
+
+  --letra: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --t-pequeno: 0.8125rem;   /* 13px: legendas, notas */
+  --t-base: 1.0625rem;      /* 17px: texto corrido */
+  --t-medio: 1.25rem;       /* 20px: entradas de lista */
+  --t-titulo: clamp(2.75rem, 7vw, 5.5rem);
+
+  --margem: clamp(1.25rem, 4vw, 3rem);
+  --espaco: clamp(3rem, 8vw, 6rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #161615;
+    --tinta: #e9e9e4;
+    --cinza: #9a9a94;
+    --linha: #34342f;
+    --fundo-img: #22221f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--letra);
+  font-size: var(--t-base);
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga";
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--cinza); }
+:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+.saltar {
+  position: absolute; left: -999px; top: 0;
+  background: var(--tinta); color: var(--papel); padding: 0.5rem 1rem;
+}
+.saltar:focus { left: var(--margem); }
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem 2rem;
+  padding: 1.25rem var(--margem);
+}
+
+.cabecalho .nome {
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.navegacao ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navegacao a { text-decoration: none; }
+.navegacao a[aria-current="page"],
+.navegacao a:hover { text-decoration: underline; color: inherit; }
+
+.navegacao .lingua { color: var(--cinza); }
+
+/* ---------- Página de projeto ---------- */
+
+/* Telemóvel e tablet: primeira imagem, título e texto, restantes imagens,
+   e por fim textos, exposições e dossier. */
+.projeto {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  padding: 1rem var(--margem) var(--espaco);
+}
+
+.projeto-imagens { display: contents; }
+.projeto-imagens figure:first-child { order: 1; }
+.projeto-intro   { order: 2; margin-bottom: 1.5rem; }
+.projeto-imagens figure:not(:first-child) { order: 3; }
+.projeto-info    { order: 4; margin-top: 1.5rem; }
+
+.projeto-intro   { grid-area: intro; }
+.projeto-imagens { grid-area: imagens; }
+.projeto-info    { grid-area: info; }
+
+@media (min-width: 60rem) {
+  .projeto-imagens {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+  .projeto {
+    display: grid;
+    padding: var(--espaco) var(--margem);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "intro imagens"
+      "info  imagens";
+    column-gap: clamp(3rem, 6vw, 6rem);
+    row-gap: var(--espaco);
+    align-items: start;
+  }
+}
+
+.projeto h1 {
+  margin: 0 0 0.35em;
+  font-size: var(--t-titulo);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  hyphens: manual;
+}
+
+.projeto .datas {
+  margin: 0 0 2.5rem;
+  color: var(--cinza);
+}
+
+.sinopse { max-width: 34em; }
+.sinopse p { margin: 0 0 1em; }
+.sinopse .assinatura { color: var(--cinza); font-size: var(--t-pequeno); }
+
+/* Imagens */
+
+.projeto-imagens figure { margin: 0; }
+
+.projeto-imagens img {
+  width: 100%;
+  background: var(--fundo-img);
+}
+
+/* Imagens verticais não ocupam a largura toda no ecrã grande:
+   assim não obrigam a percorrer meio metro de página. */
+@media (min-width: 60rem) {
+  .projeto-imagens figure.vertical { width: 78%; }
+  .projeto-imagens figure.vertical.direita { margin-left: auto; }
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-size: var(--t-pequeno);
+  line-height: 1.45;
+  color: var(--cinza);
+  max-width: 40em;
+}
+
+figcaption cite { font-style: italic; color: var(--tinta); }
+
+/* Informação: textos, exposições, dossier */
+
+.projeto-info section + section { margin-top: 3rem; }
+
+.projeto-info h2 {
+  margin: 0 0 1rem;
+  font-size: var(--t-base);
+  font-weight: 600;
+}
+
+.lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--linha);
+}
+
+.lista li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.lista .detalhe {
+  display: block;
+  color: var(--cinza);
+  font-size: var(--t-pequeno);
+}
+
+.dossier a {
+  display: inline-block;
+  font-size: var(--t-medio);
+}
+
+.dossier .detalhe { color: var(--cinza); font-size: var(--t-pequeno); }
+
+/* ---------- Navegação entre projetos ---------- */
+
+.entre-projetos {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem var(--margem);
+  border-top: 1px solid var(--linha);
+}
+
+.entre-projetos a { text-decoration: none; }
+.entre-projetos a:hover { text-decoration: underline; color: inherit; }
+.entre-projetos span { display: block; color: var(--cinza); font-size: var(--t-pequeno); }
+.entre-projetos .seguinte { text-align: right; }
+
+/* ---------- Índice de projetos ---------- */
+
+.indice { padding: var(--espaco) var(--margem); }
+
+.grelha {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 45rem) { .grelha { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3.5rem 2rem; } }
+@media (min-width: 80rem) { .grelha { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.grelha a { display: block; text-decoration: none; }
+.grelha img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--fundo-img); }
+.grelha .titulo { display: block; margin-top: 0.7rem; line-height: 1.3; }
+.grelha a:hover .titulo { text-decoration: underline; }
+.grelha a:hover { color: inherit; }
+.grelha .externo { display: block; font-size: var(--t-pequeno); color: var(--cinza); }
+
+.visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  padding: 2rem var(--margem) 3rem;
+  font-size: var(--t-pequeno);
+  color: var(--cinza);
+}
+.rodape p { margin: 0; }
+
+/* ---------- Página provisória (capa) ---------- */
+
+.capa {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 10vw, 7rem) var(--margem) 0;
+}
+
+.capa h1 {
+  margin: 0 0 0.3em;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.capa .descricao { margin: 0 0 3rem; color: var(--cinza); font-size: var(--t-medio); }
+
+.capa h2 {
+  margin: 0 0 1.25rem;
+  font-size: var(--t-base);
+  font-weight: 600;
+}
+
+.aviso {
+  margin: 0 0 3.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--tinta);
+  max-width: 34em;
+}
+.aviso p { margin: 0; }
+
+.novidades { margin-bottom: 3.5rem; }
+.novidades article + article { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--linha); }
+.novidades h3 { margin: 0 0 0.25rem; font-size: var(--t-medio); font-weight: 500; }
+.novidades .onde { margin: 0 0 0.6rem; color: var(--cinza); font-size: var(--t-pequeno); }
+.novidades p { margin: 0; max-width: 34em; }
+
+.ligacoes { margin-bottom: 3.5rem; }
+
+.ingles {
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.ingles p { margin: 0; max-width: 34em; color: var(--cinza); }
+.ingles a { color: var(--tinta); }
+
+/* Notícias com imagem e informação prática */
+
+.novidades .intro { margin: -0.5rem 0 2rem; color: var(--cinza); max-width: 34em; }
+.novidades article + article { margin-top: 3rem; padding-top: 3rem; }
+.novidades article > * + * { margin-top: 1rem; }
+
+.novidades figure { margin: 1.5rem 0; }
+.novidades figure img { width: 100%; background: var(--fundo-img); }
+.novidades figure.estreita { max-width: 22rem; }
+.novidades cite { font-style: italic; }
+
+.pratico {
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem 1.5rem;
+  font-size: var(--t-pequeno);
+}
+.pratico dt { font-weight: 600; }
+.pratico dd { margin: 0 0 0.75rem; color: var(--cinza); }
+
+@media (min-width: 34rem) {
+  .pratico { grid-template-columns: 8rem 1fr; }
+  .pratico dt { grid-column: 1; }
+  .pratico dd { grid-column: 2; margin-bottom: 0.5rem; }
+}
+
+.novidades + .novidades { margin-top: 4rem; padding-top: 3rem; border-top: 2px solid var(--tinta); }
+
+.novidades .inauguracao { font-weight: 500; }
