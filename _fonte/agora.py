@@ -21,7 +21,7 @@ pt="""
   <article>
     <h3>ECO·NOMIA: As Regras da Casa</h3>
     <p class="onde">Centro Cultural de Cascais, Fundação D. Luís I · encerrou a 27 de Setembro</p>
-    <p>Obrigada à equipa da Fundação D. Luís I e a todos os que visitaram a exposição ao longo destes meses. O catálogo digital, com textos de Salvato Teles de Menezes e Inês Ferreira-Norman e o registo fotográfico das obras, pode ser consultado <a href="https://online.fliphtml5.com/kyoil/thek/#p=1">aqui</a>. As imagens da exposição estão <a href="{raiz}projectos/eco-nomia/">na página do projecto</a>.</p>
+    <p>Obrigada à equipa da Fundação D. Luís I e a todos os que visitaram a exposição ao longo destes meses. O catálogo digital, com textos de Salvato Teles de Menezes e Inês Ferreira-Norman e o registo fotográfico das obras, pode ser consultado <a href="https://online.fliphtml5.com/kyoil/thek/#p=1">aqui</a>. As imagens da exposição estão <a href="{raiz}projectos/eco-nomia/index.html">na página do projecto</a>.</p>
   </article>
 </section>
 
@@ -60,7 +60,7 @@ en="""
   <article>
     <h3>ECO·NOMIA: As Regras da Casa</h3>
     <p class="onde">Centro Cultural de Cascais, Fundação D. Luís I · closed on 27 September</p>
-    <p>Thank you to the team at the Fundação D. Luís I and to everyone who visited over these months. The digital catalogue, with texts by Salvato Teles de Menezes and Inês Ferreira-Norman and photographs of the works, can be viewed <a href="https://online.fliphtml5.com/kyoil/thek/#p=1">here</a>. Images of the exhibition are on <a href="{raiz}en/projects/eco-nomia/">the project page</a>.</p>
+    <p>Thank you to the team at the Fundação D. Luís I and to everyone who visited over these months. The digital catalogue, with texts by Salvato Teles de Menezes and Inês Ferreira-Norman and photographs of the works, can be viewed <a href="https://online.fliphtml5.com/kyoil/thek/#p=1">here</a>. Images of the exhibition are on <a href="{raiz}en/projects/eco-nomia/index.html">the project page</a>.</p>
   </article>
 </section>
 

@@ -46,9 +46,13 @@ def caminho(lingua, tipo, slug=""):
     else:
         base = {"inicio": "en/", "agora": "en/now/", "projecto": "en/projects/", "texto": "en/texts/"}[tipo]
     r = base + (slug + "/" if slug else "")
-    if os.environ.get("PREVISAO") and (r == "" or r.endswith("/")):
-        r += "index.html"  # para ver o site fora de um servidor que resolva pastas
+    if r == "" or r.endswith("/"):
+        r += "index.html"  # ligações explícitas: funcionam também abrindo os ficheiros no computador
     return r
+
+def limpo(rel):
+    """Endereço público sem index.html, para o canonical."""
+    return rel[:-len("index.html")] if rel.endswith("index.html") else rel
 
 def raiz_de(rel):
     return "../" * rel.count("/")
@@ -96,9 +100,9 @@ def pagina(lingua, rel, titulo, corpo, outra_rel, descricao=None, imagem_og=None
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{html.escape(titulo_doc)}</title>
   <meta name="description" content="{desc}">
-  <link rel="canonical" href="{SITE}{rel}">
-  <link rel="alternate" hreflang="pt" href="{SITE}{rel if lingua == 'pt' else outra_rel}">
-  <link rel="alternate" hreflang="en" href="{SITE}{rel if lingua == 'en' else outra_rel}">
+  <link rel="canonical" href="{SITE}{limpo(rel)}">
+  <link rel="alternate" hreflang="pt" href="{SITE}{limpo(rel if lingua == 'pt' else outra_rel)}">
+  <link rel="alternate" hreflang="en" href="{SITE}{limpo(rel if lingua == 'en' else outra_rel)}">
   <meta property="og:title" content="{html.escape(titulo_doc, quote=True)}">
   <meta property="og:description" content="{desc}">{og_img}
   <meta property="og:type" content="website">
@@ -308,9 +312,11 @@ def gerar():
 
     # --- 404 (bilingue)
     corpo = f'''<div class="capa"><h1>{T['pt']['nao_encontrada']}</h1><p class="descricao">{T['pt']['nao_encontrada_txt']}</p>
-<p><a href="/">{T['pt']['todos']}</a></p>
-<div lang="en"><h2>{T['en']['nao_encontrada']}</h2><p>{T['en']['nao_encontrada_txt']} <a href="/en/">{T['en']['todos']}</a></p></div></div>'''
-    (RAIZ / "404.html").write_text(pagina("pt", "404.html", T["pt"]["nao_encontrada"], corpo, "en/").replace('href="css/', 'href="/css/').replace('href="en/"', 'href="/en/"').replace('href="agora/"', 'href="/agora/"').replace('href=""', 'href="/"'), encoding="utf-8")
+<p><a href="/index.html">{T['pt']['todos']}</a></p>
+<div lang="en"><h2>{T['en']['nao_encontrada']}</h2><p>{T['en']['nao_encontrada_txt']} <a href="/en/index.html">{T['en']['todos']}</a></p></div></div>'''
+    p404 = pagina("pt", "404.html", T["pt"]["nao_encontrada"], corpo, "en/index.html")
+    p404 = re.sub(r'(href|src)="(?!https?:|mailto:|/|#)', r'\1="/', p404)  # a 404 pode aparecer em qualquer pasta
+    (RAIZ / "404.html").write_text(p404, encoding="utf-8")
 
     print("feito:", len(PROJECTOS), "projectos,", sum(len(d) for d in dados), "imagens,", len(TEXTOS), "textos")
 
