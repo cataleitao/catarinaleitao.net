@@ -338,3 +338,46 @@ figcaption cite { font-style: italic; color: var(--tinta); }
 .novidades + .novidades { margin-top: 4rem; padding-top: 3rem; border-top: 2px solid var(--tinta); }
 
 .novidades .inauguracao { font-weight: 500; }
+
+/* ---------- Acrescentos do site completo ---------- */
+
+.cabecalho { border-bottom: 1px solid var(--linha); }
+.navegacao .lingua { font-size: var(--t-pequeno); letter-spacing: 0.04em; }
+
+.grelha .ano { display: block; color: var(--cinza); font-size: var(--t-pequeno); font-variant-numeric: tabular-nums; }
+.grelha .externo { margin-top: 0.1rem; }
+
+.projeto .datas { max-width: 34em; }
+.sinopse cite, .novidades cite { font-style: italic; }
+.sinopse a { text-decoration-thickness: 1px; }
+
+/* Textos longos */
+.texto {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--espaco) var(--margem);
+}
+.texto h1 {
+  margin: 0 0 0.3em;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.texto .autor { margin: 0 0 2.5rem; color: var(--cinza); }
+.texto .aviso-lingua { margin: -1.5rem 0 2.5rem; font-size: var(--t-pequeno); color: var(--cinza); }
+.texto-corpo p { margin: 0 0 1em; }
+.texto-corpo h3 { margin: 2em 0 0.75em; font-size: var(--t-base); font-weight: 600; }
+.texto-corpo blockquote { margin: 1.5em 0; padding-left: 1.25em; border-left: 1px solid var(--linha); color: var(--cinza); }
+.texto-corpo sup { font-size: 0.7em; }
+.texto .volta { margin-top: 3rem; }
+
+/* Rodapé com contactos */
+.rodape { border-top: 1px solid var(--linha); }
+.rodape .contactos {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  margin: 0 0 1rem; padding: 0; list-style: none;
+}
+.rodape .contactos a { color: var(--tinta); text-decoration: none; }
+.rodape .contactos a:hover { text-decoration: underline; }
