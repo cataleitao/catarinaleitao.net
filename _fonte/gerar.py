@@ -202,7 +202,7 @@ def ler_documentos():
 
 def item_documento(d, lingua, r, com_projecto=False):
     t = T[lingua]
-    titulo = html.escape(d["titulo"])
+    titulo = html.escape(d.get("titulo_en") if lingua == "en" and d.get("titulo_en") else d["titulo"])
     extra = ""
     if d["pagina"]:
         a = f'<a href="{r}{caminho(lingua, "texto", d["pagina"])}">{titulo}</a>'
@@ -218,6 +218,8 @@ def item_documento(d, lingua, r, com_projecto=False):
     partes = [x for x in [d["autor"], html.escape(d["onde"]), d["data"]] if x]
     marca = " (PDF)" if d["ficheiros"] and not d["pagina"] else (" ↗" if d["link"] and not d["pagina"] and not d["ficheiros"] else "")
     if d["lingua"]: partes.append(d["lingua"])
+    if d.get("ref_" + lingua):  # entradas bibliográficas do CV: a referência completa, tal como no CV
+        partes = [html.escape(d["ref_" + lingua])]
     proj = ""
     if com_projecto:
         nomes = [pp["titulo"][lingua] for pp in PROJECTOS if pp["slug"] in d["projectos"]]

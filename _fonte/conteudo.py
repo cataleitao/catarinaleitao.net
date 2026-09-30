@@ -122,13 +122,15 @@ dict(
 dict(
  slug="naturfatura", ano="2023",
  titulo=dict(pt="Naturfatura", en="Naturfatura"),
- onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 15.04–01.07.2023. Curadoria de João Silvério",
-           en="Carlos Carvalho Arte Contemporânea, Lisbon, 15.04–01.07.2023. Curated by João Silvério"),
+ onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 15.04–01.07.2023, curadoria de João Silvério · <cite>Sativa</cite>, Biblioteca Municipal de Águeda e ESTGA – Universidade de Aveiro, 15.07–23.08.2023",
+           en="Carlos Carvalho Arte Contemporânea, Lisbon, 15.04–01.07.2023, curated by João Silvério · <cite>Sativa</cite>, Biblioteca Municipal de Águeda and ESTGA – Universidade de Aveiro, 15.07–23.08.2023"),
  texto=dict(
   pt=["<cite>Naturfatura</cite> é uma exposição composta por uma série de trabalhos escultóricos e um conjunto de desenhos de grande formato. As obras de <cite>Naturfatura</cite> inserem-se numa prática através da qual tenho vindo a propor a ideia de uma continuidade absoluta e não-hierárquica entre os conceitos de humano, natureza, artifício e cultura.",
-      "Em <cite>Naturfatura</cite>, os desenhos representam anotações possíveis e constituem-se como fabulações sobre uma ideia de observação científica nas quais fundo formas, noções e sensações dos universos do orgânico, do manufacturado, da geologia e da botânica. Por sua vez, as esculturas dão continuidade à exploração destes elementos, expandindo os desenhos em construções híbridas que materializam misturas e estabelecem um diálogo com a corporalidade do espaço."],
+      "Em <cite>Naturfatura</cite>, os desenhos representam anotações possíveis e constituem-se como fabulações sobre uma ideia de observação científica nas quais fundo formas, noções e sensações dos universos do orgânico, do manufacturado, da geologia e da botânica. Por sua vez, as esculturas dão continuidade à exploração destes elementos, expandindo os desenhos em construções híbridas que materializam misturas e estabelecem um diálogo com a corporalidade do espaço.",
+      "No Verão de 2023 o projecto voltou a ser mostrado em <cite>Sativa</cite>, exposição individual integrada no 2.º ciclo de <cite>O Desenho como Pensamento</cite>, com direcção artística de Alexandre Baptista, em Águeda. O ciclo tem catálogo."],
   en=["<cite>Naturfatura</cite> brings together a series of sculptural works and a group of large-format drawings. They belong to a practice through which I have been proposing an absolute, non-hierarchical continuity between the concepts of the human, nature, artifice and culture.",
-      "In <cite>Naturfatura</cite>, the drawings stand as possible annotations: fabulations on an idea of scientific observation in which I fuse forms, notions and sensations from the worlds of the organic, the manufactured, geology and botany. The sculptures carry this exploration further, expanding the drawings into hybrid constructions that give material form to these mixtures and enter into dialogue with the physical presence of the space."]),
+      "In <cite>Naturfatura</cite>, the drawings stand as possible annotations: fabulations on an idea of scientific observation in which I fuse forms, notions and sensations from the worlds of the organic, the manufactured, geology and botany. The sculptures carry this exploration further, expanding the drawings into hybrid constructions that give material form to these mixtures and enter into dialogue with the physical presence of the space.",
+      "In the summer of 2023 the project was shown again as <cite>Sativa</cite>, a solo exhibition in the second cycle of <cite>O Desenho como Pensamento</cite> (Drawing as Thought), under the artistic direction of Alexandre Baptista, in Águeda. The cycle has a catalogue."]),
  imagens=[
   ("wp/2023/10/2023-Naturfatura-vistas-8-1.jpg", VISTA_NF_PT, VISTA_NF_EN, None),
   ("wp/2023/10/Naturfatura-B-03.jpg", *NF["B"], None),
@@ -151,23 +153,11 @@ dict(
   ("wp/2023/10/Apontamentos-Naturfatura-05.jpg", *ap("05","110x151 cm","110x151 cm"), None),
   ("wp/2023/10/Apontamentos-Naturfatura-06.jpg", *ap("06","110x152,5 cm","110x152.5 cm"), None),
   ("wp/2023/10/Apontamentos-Naturfatura-02-vista1.jpg", *ap("02","110,5x151 cm","110.5x151 cm"), None),
+  ("wp/2023/07/sativa.jpeg", "Vista da exposição <cite>Sativa</cite>, Biblioteca Municipal de Águeda, 2023.", "Installation view, <cite>Sativa</cite>, Biblioteca Municipal de Águeda, 2023.", None),
+  ("wp/2023/09/IMG_20230924_183716861.jpg", "Catálogo <cite>O Desenho como Pensamento</cite>, 2.º ciclo, organização de Alexandre Baptista, Águeda, 2023.", "Catalogue, <cite>O Desenho como Pensamento</cite>, second cycle, edited by Alexandre Baptista, Águeda, 2023.", None),
+  ("wp/2023/09/IMG_20230924_183707354.jpg", "Catálogo <cite>O Desenho como Pensamento</cite>: <cite>Naturfatura F</cite>, 2023.", "Catalogue, <cite>O Desenho como Pensamento</cite>: <cite>Naturfatura F</cite>, 2023.", None),
  ],
- rever=["texto EN", "legendas atribuídas pela letra no nome do ficheiro", "créditos fotográficos"],
-),
-
-# ------------------------------------------------------------------
-dict(
- slug="sativa", ano="2023",
- titulo=dict(pt="Sativa", en="Sativa"),
- onde=dict(pt="Biblioteca Municipal de Águeda e ESTGA – Universidade de Aveiro, 15.07–23.08.2023. Ciclo <cite>O Desenho como Pensamento</cite>, direcção artística de Alexandre Baptista",
-           en="Biblioteca Municipal de Águeda and ESTGA – Universidade de Aveiro, 15.07–23.08.2023. <cite>O Desenho como Pensamento</cite> series, artistic direction by Alexandre Baptista"),
- texto=dict(
-  pt=["Exposição individual integrada no 2.º ciclo de <cite>O Desenho como Pensamento</cite>, com esculturas da série <cite>Naturfatura</cite>."],
-  en=["Solo exhibition in the second cycle of <cite>O Desenho como Pensamento</cite> (Drawing as Thought), with sculptures from the <cite>Naturfatura</cite> series."]),
- imagens=[
-  ("wp/2023/07/sativa.jpeg", "Vista da exposição <cite>Sativa</cite>, Águeda, 2023.", "Installation view, <cite>Sativa</cite>, Águeda, 2023.", None),
- ],
- rever=["texto PT e EN (factual)", "só há uma imagem: esperar pelas da exposição", "confirmar que as esculturas são Naturfatura E e F (assim diz o Notion)"],
+ rever=["texto EN", "legendas atribuídas pela letra no nome do ficheiro", "créditos fotográficos", "parágrafo sobre Sativa (escrito de novo)", "página do catálogo: confirmar que é a Naturfatura F", "esperar pelas imagens da Sativa"],
 ),
 
 # ------------------------------------------------------------------
