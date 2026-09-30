@@ -227,6 +227,33 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
+ slug="paisagem-instavel", ano="2017",
+ titulo=dict(pt="Paisagem Instável", en="Paisagem Instável"),
+ onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 25.11.2017–13.01.2018",
+           en="Carlos Carvalho Arte Contemporânea, Lisbon, 25.11.2017–13.01.2018"),
+ texto=dict(
+  pt=["Esculturas da série <cite>Paisagem Instável</cite> e duas séries de desenho que acompanham o projecto: <cite>Apontamentos</cite>, aguarela, guache e tinta acrílica sobre papel, 76x111 cm, e <cite>Monocultura</cite>, aguarela, guache, tinta acrílica e corte sobre papel, 66x570 cm."],
+  en=["Sculptures from the <cite>Paisagem Instável</cite> (Unstable Landscape) series and two series of drawings that were part of the project: <cite>Apontamentos</cite>, watercolor, gouache and acrylic ink on paper, 76x111 cm, and <cite>Monocultura</cite>, watercolor, gouache, acrylic ink and cutouts on paper, 66x570 cm."]),
+ textos=["roseira-paisagem"],
+ imagens=[
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-vista1.jpg", "Vista da exposição <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisboa, 2017.", "Installation view, <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisbon, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-5a.jpg", "<cite>Paisagem Instável #5</cite>, 2017.", "<cite>Paisagem Instável #5</cite>, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-8.jpg", "<cite>Paisagem Instável #8</cite>, 2017.", "<cite>Paisagem Instável #8</cite>, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-3.jpg", "<cite>Paisagem Instável #3</cite>, 2017.", "<cite>Paisagem Instável #3</cite>, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-6.jpg", "<cite>Paisagem Instável #6</cite>, 2017.", "<cite>Paisagem Instável #6</cite>, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-1.jpg", "<cite>Paisagem Instável #1</cite>, 2017.", "<cite>Paisagem Instável #1</cite>, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-7-det.jpg", "<cite>Paisagem Instável #7</cite>, 2017, pormenor.", "<cite>Paisagem Instável #7</cite>, 2017, detail.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-vista13.jpg", "Vista da exposição <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisboa, 2017.", "Installation view, <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisbon, 2017.", None),
+  ("wp/2018/01/catarina-leitao_paisagem-instavel-monocultura.jpg", "<cite>Monocultura</cite>, 2017, tinta acrílica, aguarela, guache e corte sobre papel, 63x570 cm.", "<cite>Monocultura</cite>, 2017, acrylic ink, watercolor, gouache and cutouts on paper, 63x570 cm.", None),
+  *[(f"wp/2018/01/apontamentos{n}.jpg", f"<cite>Apontamentos #{n}</cite>, 2017, tinta acrílica, aguarela e guache sobre papel, {d.replace('.',',')}.",
+     f"<cite>Apontamentos #{n}</cite>, 2017, acrylic ink, watercolor and gouache on paper, {d}.", None)
+    for n, d in [("3","76x111 cm"),("4","76x111 cm"),("6","76x110 cm"),("2","76x111 cm"),("5","76x111 cm")]],
+ ],
+ rever=["texto PT e EN (factual, a partir do site antigo)", "Monocultura: 66x570 cm no texto, 63x570 cm na legenda", "#8, #7 e a vista 13 só existem em versão reduzida (600 a 1024 px)", "Apontamentos #9 fica de fora: só existe com 150 px", "texto de José Roseira só em PT"],
+),
+
+# ------------------------------------------------------------------
+dict(
  slug="dendrograma-versao-mini", ano="2015",
  titulo=dict(pt="Dendrograma | Tree-kit (versão mini)", en="Dendrogram | Tree-kit (Mini Version)"),
  onde=dict(pt="Colecção do Davis Lisboa Mini-Museum of Contemporary Art, Barcelona",
@@ -583,6 +610,8 @@ TEXTOS = {
                          autor="Maria do Mar Fazenda", titulo=dict(pt="Cadernos de campo e contracampo", en="Field and Counter-Field Notebooks")),
  "lambert-caixa": dict(pt="Caixa de Desenho + Biblioteca Natural II (PT)", en=None, autor="Maria de Fátima Lambert",
                        titulo=dict(pt="Catarina Leitão na Quase Galeria e no Museu Nacional Soares dos Reis", en="Catarina Leitão na Quase Galeria e no Museu Nacional Soares dos Reis")),
+ "roseira-paisagem": dict(pt="id:1310", en=None, autor="José Roseira",
+                          titulo=dict(pt="Paisagem Instável", en="Paisagem Instável")),
  "fale-2019": dict(pt="Texto de Laura Sequeira Flalé", en="Text by Laura Sequeira Falé", autor="Laura Sequeira Falé",
                    titulo=dict(pt="Catarina Leitão", en="Catarina Leitão")),
 }

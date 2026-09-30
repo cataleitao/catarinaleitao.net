@@ -147,8 +147,11 @@ def escrever(rel, conteudo):
 # ---------------------------------------------------------------- textos longos (WordPress)
 
 def texto_wp(db, titulo_post):
-    row = db.execute("select post_content from wpxh_posts where post_title=? and post_status='publish' and post_type='post'",
-                     (titulo_post,)).fetchone()
+    if str(titulo_post).startswith("id:"):  # quando há títulos repetidos no WordPress
+        row = db.execute("select post_content from wpxh_posts where ID=?", (titulo_post[3:],)).fetchone()
+    else:
+        row = db.execute("select post_content from wpxh_posts where post_title=? and post_status='publish' and post_type='post'",
+                         (titulo_post,)).fetchone()
     c = row[0]
     c = re.sub(r"<!--.*?-->", "", c, flags=re.S)
     c = re.sub(r"\[/?[a-z_]+[^\]]*\]", "", c)
@@ -170,6 +173,8 @@ def texto_wp(db, titulo_post):
     for b in blocos:
         if re.match(r"^<(p|h3|blockquote|ul|ol)>", b): saida.append(b)
         else: saida.append("<p>" + b.replace("\n", "<br>\n") + "</p>")
+    if saida and re.match(r"^<p>(por|by) [^<]{3,60}</p>$", saida[0]):
+        saida = saida[1:]  # o autor já aparece por baixo do título
     return "\n".join(saida)
 
 # ---------------------------------------------------------------- páginas
