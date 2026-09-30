@@ -381,3 +381,10 @@ figcaption cite { font-style: italic; color: var(--tinta); }
 }
 .rodape .contactos a { color: var(--tinta); text-decoration: none; }
 .rodape .contactos a:hover { text-decoration: underline; }
+
+/* Página Info */
+.info { max-width: 48rem; padding: var(--espaco) var(--margem); }
+.info section + section { margin-top: 3.5rem; }
+.info h2 { margin: 0 0 1rem; font-size: var(--t-base); font-weight: 600; }
+.info .sinopse p { margin: 0 0 1em; }
+.lista .detalhe a { color: var(--cinza); }

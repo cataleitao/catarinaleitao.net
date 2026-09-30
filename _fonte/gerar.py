@@ -15,6 +15,8 @@ from PIL import Image, ImageOps
 sys.path.insert(0, str(Path(__file__).parent))
 from conteudo import PROJECTOS, BIBLIOTECA, TEXTOS
 from agora import AGORA
+from info import BIO
+import csv
 
 RAIZ = Path(__file__).resolve().parent.parent
 FONTES = Path(sys.argv[1]) if len(sys.argv) > 1 else None
@@ -29,22 +31,28 @@ T = {  # textos da interface
             so_en="Este texto existe só em inglês.", so_pt="Este texto existe só em português.",
             voltar="Voltar a", descricao="Catarina Leitão, artista plástica. Escultura, desenho, instalação e livros de artista.",
             contactos="Contactos", newsletter="Subscrever a newsletter", nao_encontrada="Página não encontrada",
-            nao_encontrada_txt="O endereço pode ter mudado com a reconstrução do sítio."),
+            nao_encontrada_txt="O endereço pode ter mudado com a reconstrução do sítio.",
+            info="Info", imprensa="Imprensa", entrevistas="Entrevistas", publicacoes="Publicações", bio="Biografia",
+            cv="Curriculum vitae", cv_pt="CV em português", cv_en="CV em inglês", sem_projecto="Sem página de projecto",
+            textos_expo="Textos", projecto="Projecto"),
  "en": dict(lang="en", projectos="Projects", agora="Now", outra="PT", outra_nome="Português",
             saltar="Skip to content", textos="Texts", video="Video", foto="Photo",
             anterior="Previous", seguinte="Next", todos="All projects", de="by",
             so_en="This text exists in English only.", so_pt="This text exists in Portuguese only.",
             voltar="Back to", descricao="Catarina Leitão, visual artist. Sculpture, drawing, installation and artist's books.",
             contactos="Contact", newsletter="Subscribe to the newsletter", nao_encontrada="Page not found",
-            nao_encontrada_txt="The address may have changed while the site was rebuilt."),
+            nao_encontrada_txt="The address may have changed while the site was rebuilt.",
+            info="Info", imprensa="Press", entrevistas="Interviews", publicacoes="Publications", bio="Biography",
+            cv="Curriculum vitae", cv_pt="CV in Portuguese", cv_en="CV in English", sem_projecto="No project page",
+            textos_expo="Texts", projecto="Project"),
 }
 
 def caminho(lingua, tipo, slug=""):
     """Caminho relativo à raiz, sem barra inicial."""
     if lingua == "pt":
-        base = {"inicio": "", "agora": "agora/", "projecto": "projectos/", "texto": "textos/"}[tipo]
+        base = {"inicio": "", "agora": "agora/", "info": "info/", "projecto": "projectos/", "texto": "textos/"}[tipo]
     else:
-        base = {"inicio": "en/", "agora": "en/now/", "projecto": "en/projects/", "texto": "en/texts/"}[tipo]
+        base = {"inicio": "en/", "agora": "en/now/", "info": "en/info/", "projecto": "en/projects/", "texto": "en/texts/"}[tipo]
     r = base + (slug + "/" if slug else "")
     if r == "" or r.endswith("/"):
         r += "index.html"  # ligações explícitas: funcionam também abrindo os ficheiros no computador
@@ -90,6 +98,7 @@ def pagina(lingua, rel, titulo, corpo, outra_rel, descricao=None, imagem_og=None
     outra_lingua = "en" if lingua == "pt" else "pt"
     nav_proj = ' aria-current="page"' if actual == "projectos" else ""
     nav_agora = ' aria-current="page"' if actual == "agora" else ""
+    nav_info = ' aria-current="page"' if actual == "info" else ""
     titulo_doc = "Catarina Leitão" if not titulo else f"{limpar_texto(titulo)} · Catarina Leitão"
     desc = html.escape(descricao or t["descricao"], quote=True)
     og_img = f'\n  <meta property="og:image" content="{SITE}{imagem_og}">' if imagem_og else ""
@@ -119,6 +128,7 @@ def pagina(lingua, rel, titulo, corpo, outra_rel, descricao=None, imagem_og=None
     <ul>
       <li><a href="{r}{caminho(lingua, 'inicio')}"{nav_proj}>{t['projectos']}</a></li>
       <li><a href="{r}{caminho(lingua, 'agora')}"{nav_agora}>{t['agora']}</a></li>
+      <li><a href="{r}{caminho(lingua, 'info')}"{nav_info}>{t['info']}</a></li>
       <li><a class="lingua" href="{r}{outra_rel}" hreflang="{outra_lingua}" lang="{outra_lingua}" title="{t['outra_nome']}">{t['outra']}</a></li>
     </ul>
   </nav>
@@ -177,6 +187,44 @@ def texto_wp(db, titulo_post):
         saida = saida[1:]  # o autor já aparece por baixo do título
     return "\n".join(saida)
 
+# ---------------------------------------------------------------- documentos (textos, imprensa, publicações)
+
+def ler_documentos():
+    docs = list(csv.DictReader(open(Path(__file__).parent / "documentos.csv", encoding="utf-8")))
+    for d in docs:
+        d["ficheiros"] = [x.strip() for x in d["ficheiros"].split(";") if x.strip()]
+        d["projectos"] = [x.strip() for x in d["projectos"].split(";") if x.strip()]
+        anos = re.findall(r"(?:19|20)\d\d", d["data"]); ano = int(anos[-1]) if anos else 0
+        mes = re.search(r"(\d{1,2})(?:-\d{1,2})?\.(?:19|20)\d\d", d["data"])
+        dia = re.match(r"(\d{1,2})\.\d{1,2}\.", d["data"])
+        d["ordem"] = (ano, int(mes.group(1)) if mes else 0, int(dia.group(1)) if dia else 0)
+    return docs
+
+def item_documento(d, lingua, r, com_projecto=False):
+    t = T[lingua]
+    titulo = html.escape(d["titulo"])
+    extra = ""
+    if d["pagina"]:
+        a = f'<a href="{r}{caminho(lingua, "texto", d["pagina"])}">{titulo}</a>'
+    elif d["ficheiros"]:
+        a = f'<a href="{r}docs/{d["ficheiros"][0]}" target="_blank" rel="noopener">{titulo}</a>'
+        if len(d["ficheiros"]) > 1:
+            rotulos = [re.search(r"-(PT|EN)-", f).group(1) if re.search(r"-(PT|EN)-", f) else str(k + 1) for k, f in enumerate(d["ficheiros"])]
+            extra = " " + " · ".join(f'<a href="{r}docs/{f}" target="_blank" rel="noopener">{rot}</a>' for f, rot in zip(d["ficheiros"], rotulos))
+    elif d["link"]:
+        a = f'<a href="{html.escape(d["link"], quote=True)}" target="_blank" rel="noopener">{titulo}</a>'
+    else:
+        a = f"<span>{titulo}</span>"
+    partes = [x for x in [d["autor"], html.escape(d["onde"]), d["data"]] if x]
+    marca = " (PDF)" if d["ficheiros"] and not d["pagina"] else (" ↗" if d["link"] and not d["pagina"] and not d["ficheiros"] else "")
+    if d["lingua"]: partes.append(d["lingua"])
+    proj = ""
+    if com_projecto:
+        nomes = [pp["titulo"][lingua] for pp in PROJECTOS if pp["slug"] in d["projectos"]]
+        if nomes:
+            proj = " · " + ", ".join(f'<a href="{r}{caminho(lingua, "projecto", pp["slug"])}">{pp["titulo"][lingua]}</a>' for pp in PROJECTOS if pp["slug"] in d["projectos"])
+    return f'<li>{a}{marca}{extra}<span class="detalhe">{" · ".join(partes)}{proj}</span></li>'
+
 # ---------------------------------------------------------------- páginas
 
 def gerar():
@@ -200,6 +248,12 @@ def gerar():
             shutil.copy(FONTES / ORIGEM[pref] / resto, RAIZ / dest)
         dados.append(imgs)
     processar_capa(BIBLIOTECA["capa"], "img/p/biblioteca-natural-capa.jpg")
+
+    DOCS = ler_documentos()
+    (RAIZ / "docs").mkdir(exist_ok=True)
+    for d in DOCS:
+        for f in d["ficheiros"]:
+            shutil.copy(FONTES / "docs_src" / f, RAIZ / "docs" / f)
 
     for lingua in ["pt", "en"]:
         t = T[lingua]; outra = "en" if lingua == "pt" else "pt"
@@ -235,6 +289,27 @@ def gerar():
         corpo = f'<div class="capa">{AGORA[lingua].replace("{raiz}", raiz_de(rel))}</div>'
         escrever(rel, pagina(lingua, rel, t["agora"], corpo, caminho(outra, "agora"), actual="agora"))
 
+        # --- info
+        rel = caminho(lingua, "info"); r = raiz_de(rel)
+        seccoes = []
+        cvs = [d for d in DOCS if d["subtipo"] == "CV"]
+        cv_links = ""
+        if cvs:
+            fs = cvs[0]["ficheiros"]
+            cv_links = "".join(f'<li><a href="{r}docs/{f}" target="_blank" rel="noopener">{t["cv_pt"] if "-PT-" in f else t["cv_en"]}</a> (PDF)<span class="detalhe">{cvs[0]["data"]}</span></li>' for f in fs)
+        bio = "".join(f"<p>{x}</p>" for x in BIO[lingua])
+        seccoes.append(f'<section id="bio"><h2>{t["bio"]}</h2><div class="sinopse">{bio}</div></section>')
+        if cv_links:
+            seccoes.append(f'<section id="cv"><h2>{t["cv"]}</h2><ul class="lista">{cv_links}</ul></section>')
+        grupos = [("textos", t["textos_expo"], "texto de exposição"), ("imprensa", t["imprensa"], "crítica"),
+                  ("entrevistas", t["entrevistas"], "entrevista"), ("publicacoes", t["publicacoes"], "publicação")]
+        for ancora, nome, cat in grupos:
+            ds = sorted([d for d in DOCS if d["categoria"] == cat and d["subtipo"] != "CV"], key=lambda d: d["ordem"], reverse=True)
+            if ds:
+                seccoes.append(f'<section id="{ancora}"><h2>{nome}</h2><ul class="lista">{"".join(item_documento(d, lingua, r, True) for d in ds)}</ul></section>')
+        corpo = f'<div class="info"><h1 class="visualmente-oculto">{t["info"]}</h1>{"".join(seccoes)}</div>'
+        escrever(rel, pagina(lingua, rel, t["info"], corpo, caminho(outra, "info"), actual="info"))
+
         # --- projectos
         for i, (p, imgs) in enumerate(zip(PROJECTOS, dados)):
             rel = caminho(lingua, "projecto", p["slug"]); r = raiz_de(rel)
@@ -255,13 +330,13 @@ def gerar():
             paragrafos = "\n".join(f"<p>{x.replace('{raiz}', r)}</p>" for x in p["texto"][lingua])
             onde = f'<p class="datas">{p["onde"][lingua]}</p>' if p["onde"][lingua] else f'<p class="datas">{p["ano"]}</p>'
             info = []
-            if p.get("textos"):
-                li = []
-                for chave in p["textos"]:
-                    tx = TEXTOS[chave]
-                    li.append(f'<li><a href="{r}{caminho(lingua, "texto", chave)}">{tx["titulo"][lingua]}</a>'
-                              f'<span class="detalhe">{tx["autor"]}</span></li>')
-                info.append(f'<section><h2>{t["textos"]}</h2><ul class="lista">{"".join(li)}</ul></section>')
+            meus = sorted([d for d in DOCS if p["slug"] in d["projectos"]], key=lambda d: d["ordem"], reverse=True)
+            txt = [d for d in meus if d["categoria"] == "texto de exposição"]
+            imp = [d for d in meus if d["categoria"] != "texto de exposição"]
+            if txt:
+                info.append(f'<section><h2>{t["textos_expo"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in txt)}</ul></section>')
+            if imp:
+                info.append(f'<section><h2>{t["imprensa"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in imp)}</ul></section>')
             if p.get("video"):
                 v = p["video"]
                 info.append(f'<section><h2>{t["video"]}</h2><ul class="lista"><li><a href="{v["url"]}">{v["url"].split("//")[1]}</a>'
@@ -302,7 +377,8 @@ def gerar():
             aviso = ""
             if fonte_lingua != lingua:
                 aviso = f'<p class="aviso-lingua">{t["so_en"] if fonte_lingua == "en" else t["so_pt"]}</p>'
-            projectos = [p for p in PROJECTOS if chave in p.get("textos", [])]
+            slugs = {s for d in DOCS if d["pagina"] == chave for s in d["projectos"]}
+            projectos = [p for p in PROJECTOS if p["slug"] in slugs]
             volta = "".join(f'<li><a href="{r}{caminho(lingua, "projecto", p["slug"])}">{p["titulo"][lingua]}</a></li>' for p in projectos)
             corpo = f'''<article class="texto" lang="{T[fonte_lingua]['lang']}">
   <h1>{tx['titulo'][fonte_lingua]}</h1>

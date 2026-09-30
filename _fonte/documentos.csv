@@ -1,0 +1,73 @@
+categoria,subtipo,titulo,autor,onde,data,lingua,projectos,pagina,ficheiros,link,notas
+texto de exposição,folha de sala,"como fazer, a natureza",João Silvério,"Carlos Carvalho Arte Contemporânea, Lisboa",03.2023,PT,naturfatura,,Naturfatura-texto-PT.pdf,,
+texto de exposição,folha de sala,"nature, how to make",João Silvério,"Carlos Carvalho Arte Contemporânea, Lisboa",03.2023,EN,naturfatura,,Naturfatura-texto-EN.pdf,,
+texto de exposição,texto de catálogo,As possibilidades de uma paisagem / The Possibilities of a Landscape,João Pinharanda,"Galeria do Parque, Vila Nova da Barquinha",10.2020,PT-EN,as-possibilidades-de-uma-paisagem,,2020-Pinharanda-VNB.pdf,,
+texto de exposição,catálogo,As possibilidades de uma paisagem,,"Galeria do Parque, Vila Nova da Barquinha",2020,PT,as-possibilidades-de-uma-paisagem,,Leitao_catalogo.pdf,,
+texto de exposição,folha de sala,Catarina Leitão,Laura Sequeira Falé,"Carpe Diem Arte e Pesquisa / Abreu Advogados, Lisboa",06.2019,PT / EN,atelier-portatil,fale-2019,,,
+texto de exposição,texto de catálogo,Cadernos de campo e contracampo / Field and Counter-Field Notebooks,Maria do Mar Fazenda,"Catarina Leitão | Orografias, Giefarte/Documenta, Lisboa",04.2019,PT / EN,orografias,mdmf-orografias,,,
+texto de exposição,texto de exposição,Paisagem Instável,José Roseira,"Carlos Carvalho Arte Contemporânea, Lisboa",11.2017,PT,paisagem-instavel,roseira-paisagem,,,falta EN
+texto de exposição,texto de catálogo,Catarina Leitão na Quase Galeria e no Museu Nacional Soares dos Reis,Maria de Fátima Lambert,"Quase Galeria, Porto",04.2017,PT,caixa-de-desenho,lambert-caixa,quase_Catarina Leitão_web.pdf,,o PDF é o catálogo da Quase Galeria
+texto de exposição,folha de sala,"Ciclo ações estéticas quase instantâneas, parte 12",Maria de Fátima Lambert,"Museu Nacional Soares dos Reis, Porto",2017,PT,caixa-de-desenho,,mnsr-folhasala.pdf,,
+texto de exposição,texto da artista,Dendrograma | Tree-kit,Catarina Leitão,"MCO Arte Contemporânea, Porto",04.2016,PT,dendrograma,dendrograma-pt,,,
+texto de exposição,texto da artista,Dendrogram | Tree-kit (Mini Version),Catarina Leitão,"Davis Museum, Barcelona",04.2016,EN,dendrograma-versao-mini,dendrogram-mini,,,
+texto de exposição,dossier da artista,"Dendrograma | Tree-kit, obra completa",Catarina Leitão,,2016,PT,dendrograma,,leitao-2016-dendrograma-obra-completa.pdf,,"11 páginas, 6 MB"
+texto de exposição,texto sobre a obra,Gabinete / Cabinet,José Roseira,,2013,PT / EN,gabinete,roseira-gabinete,,,
+texto de exposição,texto da artista,Uplift,Catarina Leitão,"Center for Book Arts, Nova Iorque",2013,EN,uplift,uplift-en,,,
+texto de exposição,texto da artista,Systema Naturæ,Catarina Leitão,"Carlos Carvalho Arte Contemporânea, Lisboa",03.2012,PT / EN,systema-naturae,systema-naturae,,,
+texto de exposição,texto de catálogo,Greater New York 2005,Amy Smith-Stewart,"MoMA/P.S.1, Nova Iorque",2005,EN,one-with-nature-natural-selection,,2005-gny-ps1-moma.pdf,,
+texto de exposição,texto de catálogo,Densidade Relativa,Leonor Nazaré,"CAM, Fundação Calouste Gulbenkian, Lisboa",2005,PT,,,2005-densidaderelativa.pdf,,
+texto de exposição,texto de catálogo,De Natura,Leonor Nazaré,"Natureza Domesticada, CAM, Fundação Calouste Gulbenkian",2002,PT,natureza-domesticada,,2002-leonor_denatura-pt.pdf,,
+texto de exposição,texto de catálogo,De Natura,Leonor Nazaré,"Tamed Nature, CAM, Fundação Calouste Gulbenkian",2002,EN,natureza-domesticada,,2002-leonor_denatura-en-web.pdf,,
+texto de exposição,texto da artista,Natureza Domesticada / Tamed Nature,Catarina Leitão,"CAM, Fundação Calouste Gulbenkian",2002,PT / EN,natureza-domesticada,natureza-domesticada,,,o PDF repete a versão EN da página: dispensável
+crítica,crítica online,Naturfatura: Catarina Leitão na Galeria Carlos Carvalho,Laurinda Marques,Umbigo,12.05.2023,PT,naturfatura,,,https://umbigomagazine.com/pt/blog/2023/05/12/naturfatura-catarina-leitao-na-galeria-carlos-carvalho/,
+crítica,crítica online,O Desenho como Pensamento: 5.º módulo de exposições individuais,Daniel Madeira,Umbigo,10.08.2023,PT,sativa,,,https://umbigomagazine.com/pt/blog/2023/08/10/o-desenho-como-pensamento-5o-modulo-de-exposicoes-individuais/,Sativa não tem página; ligo à Naturfatura?
+crítica,imprensa,Um Processo de Exploração,José Vegar,Jornal de Negócios,20.04.2012,PT,systema-naturae,,2012_jornaldenegocios.pdf,,
+crítica,crítica online,Systema Naturae. Catarina Leitão e José Roseira (Orbis Tertius),Pedro Moura,Ler BD,15.04.2012,PT,systema-naturae,,,http://lerbd.blogspot.com/2012/04/systema-naturae-catarina-leitao-e-jose.html,
+crítica,imprensa,A arte nas nossas mãos,José Marmeleira,"Público, Ípsilon",24.08.2011,PT,,,2011-arte-nas-nossas-maos-ipsilon.pdf,,fica só o PDF
+crítica,crítica online,Drift. Catarina Leitão (auto-edição),Pedro Moura,Ler BD,26.05.2011,PT,,,,http://lerbd.blogspot.com/2011/05/drift-catarina-leitao-auto-edicao.html,Drift não tem página
+crítica,imprensa,What is An Experimental Book?,Steven Heller,Print,06.2010,EN,,,2010-whatisanexperimentalbook.pdf,,
+crítica,imprensa,Open Book,Grant Mandarino,Ann Arbor Observer,05.2010,EN,uplift,,2010-openbook.pdf,,
+crítica,imprensa,O Regresso de Catarina,José Vegar,Jornal de Negócios,09.04.2010,PT,invasive-species,,2010_jornaldenegocios.pdf,,
+crítica,crítica online,Portugueses em Nova Iorque,Pedro Reis,alexandrepomar.typepad.com,02.2008,PT,portable-private-garden,,2008-alexandre-pomar-pedro-reis.pdf,,fica só o PDF
+crítica,imprensa,Prevailing Climate (Art in Review),Holland Cotter,The New York Times,11.08.2006,EN,ard,,2006_nyt_aug11_cotter.pdf,,
+crítica,imprensa,"Odes to Nature, Grand and Demure, at Two Bronx Gardens",Ken Johnson,The New York Times,14.07.2006,EN,portable-private-garden,,2006_nyt_july14_kenjohnson.pdf,,
+crítica,crítica online,Critics' Picks: Catarina Leitão,Miguel Amado,Artforum,06.2006,EN,thicket-weatherproof,,2006-artforum.pdf,,
+crítica,imprensa,Contaminações,Alexandre Pomar,Expresso,03.06.2006,PT,thicket-weatherproof,,2006-expresso.pdf,,
+crítica,imprensa,Catarina Leitão,Miguel Amado,Exit Express n.º 21,Verão 2006,ES,one-with-nature-natural-selection,,2006-exitexpress.pdf,,
+crítica,imprensa,Catarina Leitão,Miguel Amado,L+Arte n.º 23,03.2006,PT,one-with-nature-natural-selection,,2006-gny_lmaisarte.pdf,,"4,3 MB: posso reduzir"
+crítica,ensaio crítico,From Tactical to Practical,Erin Donnelly,anamnese.pt,2004,EN,survival-systems-socrates-sculpture-park,,2004-erindonnelly.pdf,,
+crítica,ensaio crítico,From Tactical to Practical (PT),Erin Donnelly,anamnese.pt,2004,PT,survival-systems-socrates-sculpture-park,,2004-erindonnelly-pt.pdf,,
+crítica,imprensa,"Field: Science, Technology and Nature",Ken Johnson,The New York Times,23.07.2004,EN,survival-systems-socrates-sculpture-park,,2004_nyt_fieldsciencetechnologyandnature.pdf,,
+crítica,imprensa,"Field: Science, Technology and Nature",Tom Johnson,The Brooklyn Rail,09.2004,EN,survival-systems-socrates-sculpture-park,,2004_brooklyn-rail-web.pdf,,
+crítica,imprensa,Catarina Leitão,Celso Martins,Expresso,24.04.2004,PT,,,2004_expresso_celsomartins.pdf,,
+crítica,imprensa,Catarina Leitão at Andrea Rosen,Frantiska e Tim Gilman-Sevcik,Flash Art International,03-04.2003,EN,natureza-domesticada,,2003-flashart.pdf,,
+crítica,imprensa,Natureza Domesticada,Rocha de Sousa,Jornal de Letras,18.09.2002,PT,natureza-domesticada,,2002-nd_rocha_de_sousa_sm.pdf,,
+crítica,imprensa,Catarina Leitão,Celso Martins,Expresso,31.08.2002,PT,natureza-domesticada,,2002-cm-expresso2.pdf,,
+crítica,imprensa,Natureza Domesticada,Lurdes Féria,Epicuro,08.2002,PT,natureza-domesticada,,2002-epicuro-lourdesferia-web.pdf,,
+crítica,imprensa,Paisagem self-service,Luísa Soares de Oliveira,Público,27.07.2002,PT,natureza-domesticada,,2002-paisagem_self-service_sm.pdf,,
+crítica,imprensa,Ida ao campo,Ana Ruivo,Expresso,20.07.2002,PT,natureza-domesticada,,2002-anaruivo.pdf,,
+crítica,imprensa,Catarina Leitão,Celso Martins,Arte y Parte n.º 40,08-09.2002,ES,natureza-domesticada,,2002-cm-arteeparte.pdf,,
+crítica,imprensa,Uma casa para o teu corpo,Luísa Soares de Oliveira,Público,26.05.2001,PT,ard,,2001-lso-umacasa.pdf,,
+crítica,imprensa,Domestic Images from Young Talent,Holland Cotter,The New York Times,10.01.1997,EN,,,1997_nyt.pdf ; 1997-nyt2.pdf,,dois ficheiros: juntar num?
+crítica,imprensa,Na Penumbra de Um Quarto / Acerca da Solidão dos Objectos,Luísa Soares de Oliveira,Público,11.1996,PT,,,1996-lso.pdf,,
+crítica,imprensa,Catarina Leitão,Celso Martins,Expresso,1996,PT,,,1996-cm-1nov.pdf,,
+crítica,imprensa,"Catarina Leitão, Alexandra Mesquita e Vanda Vilela",Luísa Soares de Oliveira,Público,16.09.1994,PT,,,1996-lso-16set.pdf,,"nome do ficheiro diz 1996, artigo é de 1994"
+crítica,imprensa,"Catarina Leitão, Alexandra Mesquita e Vanda Vilela",Alexandre Pomar,Expresso,1994,PT,,,1994-ap.pdf,,
+crítica,imprensa,Arte Periférica abre em Belém,Luísa Soares de Oliveira,Público,11.09.1994,PT,,,1994-lso-11set.pdf,,
+crítica,imprensa,Os Contornos Ilimitados dos Objectos,Sandra Santos,Jornal de Sintra,03.06.1994,PT,,,1994-sandrasantos.pdf,,
+crítica,imprensa,Instalação Colectiva na Leo,Pedro Cabral Santo,Jornal de Queluz,20.03.1992,PT,,,1992-pcsanto.pdf,,
+crítica,imprensa,Um Novo Projecto para Instalação,Cristina Azevedo Tavares,Jornal de Letras,17.03.1992,PT,,,1992-cat-jl.pdf,,
+crítica,imprensa,Galeria Leo,Isabel Carlos,Expresso,07.03.1992,PT,,,1992-isabelcarlos.pdf,,
+crítica,imprensa,Galeria Leo,Luísa Soares de Oliveira,Público,06.03.1992,PT,,,1992-lso.pdf,,
+crítica,recensão,Books Received,Isabel Baraona,JAB – Journal of Artists' Books n.º 34,2013,EN,,,,,
+crítica,recensão,Books Received,Kate Morgan,JAB – Journal of Artists' Books n.º 33,2013,EN,,,,,
+crítica,artigo,Do it! Edit Yourself: a autoedição em Portugal,Sandra Vieira Jürgens,Arq./a,01-02.2013,PT,,,,,
+crítica,artigo,"Edição, Imagem, Contra-Cultura…",Isabel Baraona,Pangrama n.º 4,2014,PT,geral,,,,
+crítica,artigo,Postcontemporanea n.º 3,,"Postcontemporanea, Madrid",,ES,geral,,,,
+crítica,artigo online,Catarina Leitão,,File Magazine,,EN,geral,,,,
+entrevista,entrevista,Artificando ou artificializando a Natureza? Viagens e ilusões nas povoações criadas por Catarina Leitão,Inês Ferreira-Norman,Artecapital,29.12.2023,PT,geral,,,https://www.artecapital.net/entrevista-334-catarina-leitao,há também o PDF da entrevista no projecto
+entrevista,entrevista (áudio),Conversations with artists,Brainard Carey,Yale University Radio / Museum of Nonvisible Art,05.2015,EN,geral,,,https://museumofnonvisibleart.com/interviews/catarina-leitao/,o endereço goo.gl antigo já não existe; este é o destino actual
+publicação,ensaio visual,"Naturfatura, ensaio visual (5 páginas)",Catarina Leitão,"Umbigo n.º 87, Pós-Natural",01.2024,PT,naturfatura,,,,
+publicação,monografia,Catarina Leitão,Frantiska e Tim Gilman-Sevcik,"W Art, Mimesis, Porto",11.2005,EN/PT,geral,,2006-wart.pdf,,
+publicação,livro,New York Contemporary Art Scene,,"Art and Design Press, Pequim",2006,EN/ZH,one-with-nature-natural-selection,,2005-china.pdf,,
+publicação,CV,CV 2026,,,2026,PT / EN,,,CV_Leitao2026-PT-WEB.pdf ; CV_Leitao2026-EN-WEB.pdf,,vai ser actualizado

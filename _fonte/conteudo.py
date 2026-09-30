@@ -157,14 +157,28 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
+ slug="sativa", ano="2023",
+ titulo=dict(pt="Sativa", en="Sativa"),
+ onde=dict(pt="Biblioteca Municipal de Águeda e ESTGA – Universidade de Aveiro, 15.07–23.08.2023. Ciclo <cite>O Desenho como Pensamento</cite>, direcção artística de Alexandre Baptista",
+           en="Biblioteca Municipal de Águeda and ESTGA – Universidade de Aveiro, 15.07–23.08.2023. <cite>O Desenho como Pensamento</cite> series, artistic direction by Alexandre Baptista"),
+ texto=dict(
+  pt=["Exposição individual integrada no 2.º ciclo de <cite>O Desenho como Pensamento</cite>, com esculturas da série <cite>Naturfatura</cite>."],
+  en=["Solo exhibition in the second cycle of <cite>O Desenho como Pensamento</cite> (Drawing as Thought), with sculptures from the <cite>Naturfatura</cite> series."]),
+ imagens=[
+  ("wp/2023/07/sativa.jpeg", "Vista da exposição <cite>Sativa</cite>, Águeda, 2023.", "Installation view, <cite>Sativa</cite>, Águeda, 2023.", None),
+ ],
+ rever=["texto PT e EN (factual)", "só há uma imagem: esperar pelas da exposição", "confirmar que as esculturas são Naturfatura E e F (assim diz o Notion)"],
+),
+
+# ------------------------------------------------------------------
+dict(
  slug="as-possibilidades-de-uma-paisagem", ano="2020–21",
  titulo=dict(pt="As possibilidades de uma paisagem", en="As possibilidades de uma paisagem"),
  onde=dict(pt="Galeria do Parque, Vila Nova da Barquinha, 06.11.2020–30.01.2021. Curadoria de João Pinharanda",
            en="Galeria do Parque, Vila Nova da Barquinha, 06.11.2020–30.01.2021. Curated by João Pinharanda"),
  texto=dict(
-  pt=["Exposição individual na Galeria do Parque, em Vila Nova da Barquinha, com curadoria de João Pinharanda. O catálogo, com texto do curador, pode ser descarregado <a href=\"{raiz}docs/as-possibilidades-de-uma-paisagem-catalogo.pdf\">aqui</a> (PDF, 1,8 MB)."],
-  en=["Solo exhibition (<cite>The Possibilities of a Landscape</cite>) at Galeria do Parque, Vila Nova da Barquinha, curated by João Pinharanda. The catalogue, with a text by the curator, can be downloaded <a href=\"{raiz}docs/as-possibilidades-de-uma-paisagem-catalogo.pdf\">here</a> (PDF, 1.8 MB)."]),
- docs=[("wp/2020/11/Leitao_catalogo.pdf", "docs/as-possibilidades-de-uma-paisagem-catalogo.pdf")],
+  pt=["Exposição individual na Galeria do Parque, em Vila Nova da Barquinha, com curadoria de João Pinharanda."],
+  en=["Solo exhibition (<cite>The Possibilities of a Landscape</cite>) at Galeria do Parque, Vila Nova da Barquinha, curated by João Pinharanda."]),
  imagens=[(f"wp/{p}", "Vista da exposição <cite>As possibilidades de uma paisagem</cite>, Galeria do Parque, Vila Nova da Barquinha, 2020.",
            "Installation view, <cite>As possibilidades de uma paisagem</cite>, Galeria do Parque, Vila Nova da Barquinha, 2020.", None)
           for p in ["2021/10/2020-barquinha-vista2.jpg","2020/12/Leita-vnbarquinha.jpg","2021/10/2020-barquinha-vista6.jpg",
@@ -458,6 +472,25 @@ dict(
   ("ex/weatherproof-07-contracapa.jpg", "<cite>Weatherproof</cite>, 2007, contracapa.", "<cite>Weatherproof</cite>, 2007, back cover.", None),
  ],
  rever=["texto EN", "parágrafo sobre Weatherproof adaptado da tese", "local/ano: Number 35 Gallery 2007 (da CV)", "legendas: o site antigo diz 'ink on paper'; a tese diz 'tinta sumi e tinta da china' e dá 18x13 cm e 2007 para os pequenos"],
+),
+
+# ------------------------------------------------------------------
+dict(
+ slug="portable-private-garden", ano="2006–09",
+ titulo=dict(pt="Portable Private Garden", en="Portable Private Garden"),
+ onde=dict(pt="Wave Hill, Glyndor Gallery and Grounds, Nova Iorque, 2006 · Lower Manhattan Cultural Council, Nova Iorque, 2008 · Museu da Electricidade, Lisboa, 2009",
+           en="Wave Hill, Glyndor Gallery and Grounds, New York, 2006 · Lower Manhattan Cultural Council, New York, 2008 · Museu da Electricidade, Lisbon, 2009"),
+ texto=dict(
+  pt=["Uma tenda branca, de interior azul, da qual transborda um jardim de formas vegetais em tecido. Mostrada em <cite>Garden Improvement</cite>, com curadoria de Jennifer McGregor, em Wave Hill (2006), em <cite>Human Resources</cite>, com curadoria de Sara Reisman, no Lower Manhattan Cultural Council (2008), e em <cite>Lá Fora</cite>, com curadoria de João Pinharanda, no Museu da Electricidade (2009)."],
+  en=["A white tent, blue inside, from which a garden of fabric plant forms spills out. Shown in <cite>Garden Improvement</cite>, curated by Jennifer McGregor, at Wave Hill (2006), in <cite>Human Resources</cite>, curated by Sara Reisman, at the Lower Manhattan Cultural Council (2008), and in <cite>Lá Fora</cite>, curated by João Pinharanda, at the Museu da Electricidade, Lisbon (2009)."]),
+ imagens=[
+  ("wp/2017/09/2006_sc_ppgarden01.jpg", "<cite>Portable Private Garden</cite>, 2006.", "<cite>Portable Private Garden</cite>, 2006.", None),
+  ("wp/2017/09/2006_sc_ppgarden04.jpg", "<cite>Portable Private Garden</cite>. Vista em Wave Hill, Nova Iorque, 2006.", "<cite>Portable Private Garden</cite>. View at Wave Hill, New York, 2006.", None),
+  ("wp/2017/09/lafora_01.jpg", "<cite>Portable Private Garden</cite>. Vista na exposição <cite>Lá Fora</cite>, Museu da Electricidade, Lisboa, 2009.", "<cite>Portable Private Garden</cite>. View at <cite>Lá Fora</cite>, Museu da Electricidade, Lisbon, 2009.", None),
+  ("wp/2017/09/lafora_03.jpg", "<cite>Portable Private Garden</cite>, 2009.", "<cite>Portable Private Garden</cite>, 2009.", None),
+  ("wp/2017/09/lafora_06.jpg", "<cite>Portable Private Garden</cite>, 2009, interior.", "<cite>Portable Private Garden</cite>, 2009, interior.", None),
+ ],
+ rever=["texto PT e EN (descritivo, escrito de novo)", "ficha técnica em falta (materiais, dimensões)", "a primeira imagem das Lá Fora é mesmo do Museu da Electricidade? (houve também Viana do Castelo, 2008)"],
 ),
 
 # ------------------------------------------------------------------
