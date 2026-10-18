@@ -209,7 +209,7 @@ def item_documento(d, lingua, r, com_projecto=False):
     elif d["ficheiros"]:
         a = f'<a href="{r}docs/{d["ficheiros"][0]}" target="_blank" rel="noopener">{titulo}</a>'
         if len(d["ficheiros"]) > 1:
-            rotulos = [re.search(r"-(PT|EN)-", f).group(1) if re.search(r"-(PT|EN)-", f) else str(k + 1) for k, f in enumerate(d["ficheiros"])]
+            rotulos = [re.search(r"[-_](PT|EN)[-_.]", f).group(1) if re.search(r"[-_](PT|EN)[-_.]", f) else str(k + 1) for k, f in enumerate(d["ficheiros"])]
             extra = " " + " · ".join(f'<a href="{r}docs/{f}" target="_blank" rel="noopener">{rot}</a>' for f, rot in zip(d["ficheiros"], rotulos))
     elif d["link"]:
         a = f'<a href="{html.escape(d["link"], quote=True)}" target="_blank" rel="noopener">{titulo}</a>'
@@ -298,7 +298,7 @@ def gerar():
         cv_links = ""
         if cvs:
             fs = cvs[0]["ficheiros"]
-            cv_links = "".join(f'<li><a href="{r}docs/{f}" target="_blank" rel="noopener">{t["cv_pt"] if "-PT-" in f else t["cv_en"]}</a> (PDF)<span class="detalhe">{cvs[0]["data"]}</span></li>' for f in fs)
+            cv_links = "".join(f'<li><a href="{r}docs/{f}" target="_blank" rel="noopener">{t["cv_pt"] if re.search(r"[-_]PT[-_.]", f) else t["cv_en"]}</a> (PDF)<span class="detalhe">{cvs[0]["data"]}</span></li>' for f in fs)
         bio = "".join(f"<p>{x}</p>" for x in BIO[lingua])
         seccoes.append(f'<section id="bio"><h2>{t["bio"]}</h2><div class="sinopse">{bio}</div></section>')
         if cv_links:
