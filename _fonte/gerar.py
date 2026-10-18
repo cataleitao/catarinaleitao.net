@@ -16,6 +16,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 from conteudo import PROJECTOS, BIBLIOTECA, TEXTOS
 from agora import AGORA
 from info import BIO
+from ao import ao
+
+def PT(lingua, texto):
+    """Português segundo o Acordo Ortográfico de 1990; o inglês fica como está."""
+    return ao(texto) if lingua == "pt" else texto
 import csv
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -25,16 +30,16 @@ SITE = "https://catarinaleitao.net/"
 NEWSLETTER = ("https://3a310a7f.sibforms.com/serve/MUIFAE-RLhQTq2ZnutSho_4_0akkCtrH4k1OQ_PVg3yOGPbcQlfz-vGFN_Q3_-69cvJvuC45S8hj4P92rDoXSg7QYUDWgnfu_GDlk0jERygKRdD3dyaj5crF-9u5v9q0-GHZMXX39-mhK-FXidHqJwk_LjlyDK7E8jW-2esy5Xe_pkefBy7wi_6RF1KuUuFVBIOaIqw9602N6DO-nQ==")
 
 T = {  # textos da interface
- "pt": dict(lang="pt-PT", projectos="Projectos", agora="Agora", outra="EN", outra_nome="English",
+ "pt": dict(lang="pt-PT", projectos="Projetos", agora="Agora", outra="EN", outra_nome="English",
             saltar="Saltar para o conteúdo", textos="Textos", video="Vídeo", foto="Fotografia",
-            anterior="Anterior", seguinte="Seguinte", todos="Todos os projectos", de="de",
+            anterior="Anterior", seguinte="Seguinte", todos="Todos os projetos", de="de",
             so_en="Este texto existe só em inglês.", so_pt="Este texto existe só em português.",
             voltar="Voltar a", descricao="Catarina Leitão, artista plástica. Escultura, desenho, instalação e livros de artista.",
             contactos="Contactos", newsletter="Subscrever a newsletter", nao_encontrada="Página não encontrada",
             nao_encontrada_txt="O endereço pode ter mudado com a reconstrução do sítio.",
             info="Info", imprensa="Imprensa", entrevistas="Entrevistas", publicacoes="Publicações", bio="Biografia",
-            cv="Curriculum vitae", cv_pt="CV em português", cv_en="CV em inglês", sem_projecto="Sem página de projecto",
-            textos_expo="Textos", projecto="Projecto"),
+            cv="Curriculum vitae", cv_pt="CV em português", cv_en="CV em inglês", sem_projecto="Sem página de projeto",
+            textos_expo="Textos", projecto="Projeto"),
  "en": dict(lang="en", projectos="Projects", agora="Now", outra="PT", outra_nome="Português",
             saltar="Skip to content", textos="Texts", video="Video", foto="Photo",
             anterior="Previous", seguinte="Next", todos="All projects", de="by",
@@ -50,7 +55,7 @@ T = {  # textos da interface
 def caminho(lingua, tipo, slug=""):
     """Caminho relativo à raiz, sem barra inicial."""
     if lingua == "pt":
-        base = {"inicio": "", "agora": "agora/", "info": "info/", "projecto": "projectos/", "texto": "textos/"}[tipo]
+        base = {"inicio": "", "agora": "agora/", "info": "info/", "projecto": "projetos/", "texto": "textos/"}[tipo]
     else:
         base = {"inicio": "en/", "agora": "en/now/", "info": "en/info/", "projecto": "en/projects/", "texto": "en/texts/"}[tipo]
     r = base + (slug + "/" if slug else "")
@@ -215,11 +220,11 @@ def item_documento(d, lingua, r, com_projecto=False):
         a = f'<a href="{html.escape(d["link"], quote=True)}" target="_blank" rel="noopener">{titulo}</a>'
     else:
         a = f"<span>{titulo}</span>"
-    partes = [x for x in [d["autor"], html.escape(d["onde"]), d["data"]] if x]
+    partes = [x for x in [d["autor"], PT(lingua, html.escape(d["onde"])), d["data"]] if x]
     marca = " (PDF)" if d["ficheiros"] and not d["pagina"] else (" ↗" if d["link"] and not d["pagina"] and not d["ficheiros"] else "")
     if d["lingua"]: partes.append(d["lingua"])
     if d.get("ref_" + lingua):  # entradas bibliográficas do CV: a referência completa, tal como no CV
-        partes = [html.escape(d["ref_" + lingua])]
+        partes = [PT(lingua, html.escape(d["ref_" + lingua]))]
     proj = ""
     if com_projecto:
         nomes = [pp["titulo"][lingua] for pp in PROJECTOS if pp["slug"] in d["projectos"]]
@@ -231,7 +236,7 @@ def item_documento(d, lingua, r, com_projecto=False):
 
 def gerar():
     # limpar o que é gerado
-    for d in ["projectos", "textos", "agora", "en", "img/p", "docs"]:
+    for d in ["projectos", "projetos", "textos", "agora", "en", "img/p", "docs"]:
         shutil.rmtree(RAIZ / d, ignore_errors=True)
 
     db = sqlite3.connect(FONTES / "wp.db")
@@ -264,7 +269,7 @@ def gerar():
         rel = caminho(lingua, "inicio"); r = raiz_de(rel)
         itens = []
         for p in PROJECTOS:
-            nome = p.get("grelha", p["titulo"])[lingua]
+            nome = PT(lingua, p.get("grelha", p["titulo"])[lingua])
             itens.append(f'''  <li><a href="{r}{caminho(lingua, 'projecto', p['slug'])}">
     <img src="{r}img/p/{p['slug']}/capa.jpg" width="800" height="800" alt="" loading="lazy">
     <span class="titulo">{html.escape(nome)}</span>
@@ -288,7 +293,7 @@ def gerar():
 
         # --- agora
         rel = caminho(lingua, "agora")
-        corpo = f'<div class="capa">{AGORA[lingua].replace("{raiz}", raiz_de(rel))}</div>'
+        corpo = f'<div class="capa">{PT(lingua, AGORA[lingua]).replace("{raiz}", raiz_de(rel))}</div>'
         escrever(rel, pagina(lingua, rel, t["agora"], corpo, caminho(outra, "agora"), actual="agora"))
 
         # --- info
@@ -323,14 +328,15 @@ def gerar():
                     cls = ' class="vertical direita"' if lado % 2 else ' class="vertical"'; lado += 1
                 foto = f' {t["foto"]}: {im["foto"]}.' if im["foto"] else ""
                 carregar = "" if k == 0 else ' loading="lazy"'
-                alt = html.escape(limpar_texto(im[lingua]), quote=True)
+                legenda = PT(lingua, im[lingua])
+                alt = html.escape(limpar_texto(legenda), quote=True)
                 figs.append(f'''<figure{cls}>
   <img src="{r}{im['base']}-m.jpg" srcset="{r}{im['base']}-m.jpg {im['wm']}w, {r}{im['base']}.jpg {im['w']}w"
        sizes="(min-width: 60rem) 55vw, 100vw" width="{im['w']}" height="{im['h']}" alt="{alt}"{carregar}>
-  <figcaption>{im[lingua]}{foto}</figcaption>
+  <figcaption>{legenda}{foto}</figcaption>
 </figure>''')
-            paragrafos = "\n".join(f"<p>{x.replace('{raiz}', r)}</p>" for x in p["texto"][lingua])
-            onde = f'<p class="datas">{p["onde"][lingua]}</p>' if p["onde"][lingua] else f'<p class="datas">{p["ano"]}</p>'
+            paragrafos = "\n".join(f"<p>{PT(lingua, x).replace('{raiz}', r)}</p>" for x in p["texto"][lingua])
+            onde = f'<p class="datas">{PT(lingua, p["onde"][lingua])}</p>' if p["onde"][lingua] else f'<p class="datas">{p["ano"]}</p>'
             info = []
             meus = sorted([d for d in DOCS if p["slug"] in d["projectos"]], key=lambda d: d["ordem"], reverse=True)
             txt = [d for d in meus if d["categoria"] == "texto de exposição"]
@@ -342,7 +348,7 @@ def gerar():
             if p.get("video"):
                 v = p["video"]
                 info.append(f'<section><h2>{t["video"]}</h2><ul class="lista"><li><a href="{v["url"]}">{v["url"].split("//")[1]}</a>'
-                            f'<span class="detalhe">{v[lingua]}</span></li></ul></section>')
+                            f'<span class="detalhe">{PT(lingua, v[lingua])}</span></li></ul></section>')
             ant = PROJECTOS[i - 1] if i > 0 else None
             seg = PROJECTOS[i + 1] if i + 1 < len(PROJECTOS) else None
             nav = '<nav class="entre-projetos" aria-label="' + t["projectos"] + '">'
@@ -353,7 +359,7 @@ def gerar():
             nav += "</nav>"
             corpo = f'''<article class="projeto">
   <div class="projeto-intro">
-    <h1>{p['titulo'][lingua]}</h1>
+    <h1>{PT(lingua, p['titulo'][lingua])}</h1>
     {onde}
     <div class="sinopse">
 {paragrafos}
@@ -367,7 +373,7 @@ def gerar():
   </div>
 </article>
 {nav}'''
-            desc = limpar_texto(p["texto"][lingua][0])[:180]
+            desc = limpar_texto(PT(lingua, p["texto"][lingua][0]))[:180]
             escrever(rel, pagina(lingua, rel, p["titulo"][lingua], corpo, caminho(outra, "projecto", p["slug"]),
                                  descricao=desc, imagem_og=imgs[0]["base"] + ".jpg", actual="projectos"))
 
@@ -375,7 +381,7 @@ def gerar():
         for chave, tx in TEXTOS.items():
             rel = caminho(lingua, "texto", chave); r = raiz_de(rel)
             fonte_lingua = lingua if tx[lingua] else outra
-            corpo_txt = texto_wp(db, tx[fonte_lingua])
+            corpo_txt = PT(fonte_lingua, texto_wp(db, tx[fonte_lingua]))
             aviso = ""
             if fonte_lingua != lingua:
                 aviso = f'<p class="aviso-lingua">{t["so_en"] if fonte_lingua == "en" else t["so_pt"]}</p>'
