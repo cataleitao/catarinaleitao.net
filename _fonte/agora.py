@@ -37,22 +37,22 @@ pt="""
     <p>Com Akacorleone, Bisco Smith, Catarina Leitão, Mando Marie, Mots, Padure, Ricardo Romero, Rudolfo Quintas, The Lost Object e Wasted Rita.</p>
     <p><a href="https://www.armazemdasartes.com/exhibitions">armazemdasartes.com</a></p>
   </article>
+</section>
+
+<section class="novidades" aria-labelledby="t-antes">
+  <h2 id="t-antes">Antes</h2>
 
   <article>
     <h3>White Box #1: Intervalos</h3>
-    <p class="onde">Museu do Caramulo · até 18 de Outubro</p>
+    <p class="onde">Museu do Caramulo · encerrou a 18 de Outubro</p>
     <figure>
       <img src="{raiz}img/novidades/caramulo-intervalos.jpg" width="1325" height="1400" loading="lazy"
            alt="Escultura numa sala do museu: estrutura vertical verde com tiras e tubos de plástico coloridos, sobre um tapete de relva sintética.">
       <figcaption>Vista da exposição <cite>White Box #1: Intervalos</cite>, Museu do Caramulo.</figcaption>
     </figure>
-    <p>Com curadoria de José Maçãs de Carvalho, a exposição reúne trabalhos meus e de Daniela Krtsch, Fabrizio Matos e João Fonte Santa, criados em residência na Serra do Caramulo a partir das colecções do museu.</p>
+    <p>Com curadoria de José Maçãs de Carvalho, a exposição reuniu trabalhos meus e de Daniela Krtsch, Fabrizio Matos e João Fonte Santa, criados em residência na Serra do Caramulo a partir das colecções do museu.</p>
     <p><a href="https://museudocaramulo.pt">museudocaramulo.pt</a></p>
   </article>
-</section>
-
-<section class="novidades" aria-labelledby="t-antes">
-  <h2 id="t-antes">Antes</h2>
 
   <article>
     <h3>ECO·NOMIA: As Regras da Casa</h3>
@@ -106,22 +106,22 @@ en="""
     <p>With Akacorleone, Bisco Smith, Catarina Leitão, Mando Marie, Mots, Padure, Ricardo Romero, Rudolfo Quintas, The Lost Object and Wasted Rita.</p>
     <p><a href="https://www.armazemdasartes.com/exhibitions">armazemdasartes.com</a></p>
   </article>
+</section>
+
+<section class="novidades" aria-labelledby="t-antes">
+  <h2 id="t-antes">Earlier</h2>
 
   <article>
     <h3>White Box #1: Intervalos</h3>
-    <p class="onde">Museu do Caramulo · until 18 October</p>
+    <p class="onde">Museu do Caramulo · closed on 18 October</p>
     <figure>
       <img src="{raiz}img/novidades/caramulo-intervalos.jpg" width="1325" height="1400" loading="lazy"
            alt="Sculpture in a museum room: a green vertical structure with colored plastic strips and tubes, on a patch of artificial grass.">
       <figcaption>Installation view, <cite>White Box #1: Intervalos</cite>, Museu do Caramulo.</figcaption>
     </figure>
-    <p>Curated by José Maçãs de Carvalho, the exhibition brings together work by Daniela Krtsch, Fabrizio Matos, João Fonte Santa and myself, made during a residency in the Serra do Caramulo in response to the museum's collections.</p>
+    <p>Curated by José Maçãs de Carvalho, the exhibition brought together work by Daniela Krtsch, Fabrizio Matos, João Fonte Santa and myself, made during a residency in the Serra do Caramulo in response to the museum's collections.</p>
     <p><a href="https://museudocaramulo.pt">museudocaramulo.pt</a></p>
   </article>
-</section>
-
-<section class="novidades" aria-labelledby="t-antes">
-  <h2 id="t-antes">Earlier</h2>
 
   <article>
     <h3>ECO·NOMIA: As Regras da Casa</h3>
