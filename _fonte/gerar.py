@@ -89,10 +89,10 @@ def processar_imagem(origem, destino_base):
         saidas[sufixo] = c.size
     return saidas[""], saidas["-m"]
 
-def processar_capa(origem, destino):
+def processar_capa(origem, destino, centro=(0.5, 0.5)):
     pref, resto = origem.split("/", 1)
     im = ImageOps.exif_transpose(Image.open(FONTES / ORIGEM[pref] / resto)).convert("RGB")
-    im = ImageOps.fit(im, (800, 800), Image.LANCZOS)
+    im = ImageOps.fit(im, (1200, 800), Image.LANCZOS, centering=centro)
     p = RAIZ / destino; p.parent.mkdir(parents=True, exist_ok=True)
     im.save(p, "JPEG", quality=80, optimize=True, progressive=True)
 
@@ -248,13 +248,13 @@ def gerar():
             (w, h), (wm, hm) = processar_imagem(orig, base)
             imgs.append(dict(base=base, w=w, h=h, wm=wm, hm=hm, pt=lpt, en=len_, foto=foto))
         capa = p.get("capa", p["imagens"][0][0])
-        processar_capa(capa, f"img/p/{p['slug']}/capa.jpg")
+        processar_capa(capa, f"img/p/{p['slug']}/capa.jpg", p.get("centro", (0.5, 0.5)))
         for orig, dest in p.get("docs", []):
             pref, resto = orig.split("/", 1)
             (RAIZ / dest).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(FONTES / ORIGEM[pref] / resto, RAIZ / dest)
         dados.append(imgs)
-    processar_capa(BIBLIOTECA["capa"], "img/p/biblioteca-natural-capa.jpg")
+    processar_capa(BIBLIOTECA["capa"], "img/p/biblioteca-natural-capa.jpg", BIBLIOTECA.get("centro", (0.5, 0.5)))
 
     DOCS = ler_documentos()
     (RAIZ / "docs").mkdir(exist_ok=True)
@@ -271,13 +271,13 @@ def gerar():
         for p in PROJECTOS:
             nome = PT(lingua, p.get("grelha", p["titulo"])[lingua])
             itens.append(f'''  <li><a href="{r}{caminho(lingua, 'projecto', p['slug'])}">
-    <img src="{r}img/p/{p['slug']}/capa.jpg" width="800" height="800" alt="" loading="lazy">
+    <img src="{r}img/p/{p['slug']}/capa.jpg" width="1200" height="800" alt="" loading="lazy">
     <span class="titulo">{html.escape(nome)}</span>
     <span class="ano">{p['ano']}</span>
   </a></li>''')
         b = BIBLIOTECA
         itens.insert(8, f'''  <li><a href="{b['url']}">
-    <img src="{r}img/p/biblioteca-natural-capa.jpg" width="800" height="800" alt="" loading="lazy">
+    <img src="{r}img/p/biblioteca-natural-capa.jpg" width="1200" height="800" alt="" loading="lazy">
     <span class="titulo">{b['titulo'][lingua]}</span>
     <span class="ano">{b['ano']}</span>
     <span class="externo">{b['nota'][lingua]} ↗</span>

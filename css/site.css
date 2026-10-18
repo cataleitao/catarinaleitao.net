@@ -240,7 +240,7 @@ figcaption cite { font-style: italic; color: var(--tinta); }
 @media (min-width: 80rem) { .grelha { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .grelha a { display: block; text-decoration: none; }
-.grelha img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--fundo-img); }
+.grelha img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--fundo-img); }
 .grelha .titulo { display: block; margin-top: 0.7rem; line-height: 1.3; }
 .grelha a:hover .titulo { text-decoration: underline; }
 .grelha a:hover { color: inherit; }

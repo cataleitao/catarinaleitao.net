@@ -466,7 +466,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="portable-private-garden", ano="2006–09",
+ slug="portable-private-garden", ano="2006–09", capa="wp/2017/09/lafora_03.jpg",
  titulo=dict(pt="Portable Private Garden", en="Portable Private Garden"),
  onde=dict(pt="Wave Hill, Glyndor Gallery and Grounds, Nova Iorque, 2006 · Lower Manhattan Cultural Council, Nova Iorque, 2008 · Museu da Electricidade, Lisboa, 2009",
            en="Wave Hill, Glyndor Gallery and Grounds, New York, 2006 · Lower Manhattan Cultural Council, New York, 2008 · Museu da Electricidade, Lisbon, 2009"),
