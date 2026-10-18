@@ -120,7 +120,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="naturfatura", ano="2023",
+ slug="naturfatura", ano="2023", capa="wp/2023/02/Leitao-escultura-1-web.jpg",
  titulo=dict(pt="Naturfatura", en="Naturfatura"),
  onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 15.04–01.07.2023, curadoria de João Silvério · <cite>Sativa</cite>, Biblioteca Municipal de Águeda e ESTGA – Universidade de Aveiro, 15.07–23.08.2023",
            en="Carlos Carvalho Arte Contemporânea, Lisbon, 15.04–01.07.2023, curated by João Silvério · <cite>Sativa</cite>, Biblioteca Municipal de Águeda and ESTGA – Universidade de Aveiro, 15.07–23.08.2023"),
