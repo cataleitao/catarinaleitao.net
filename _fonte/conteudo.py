@@ -162,7 +162,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="as-possibilidades-de-uma-paisagem", ano="2020–21",
+ slug="as-possibilidades-de-uma-paisagem", ano="2020–21", capa="wp/2021/10/2020-barquinha-vista6.jpg",
  titulo=dict(pt="As possibilidades de uma paisagem", en="As possibilidades de uma paisagem"),
  onde=dict(pt="Galeria do Parque, Vila Nova da Barquinha, 06.11.2020–30.01.2021. Curadoria de João Pinharanda",
            en="Galeria do Parque, Vila Nova da Barquinha, 06.11.2020–30.01.2021. Curated by João Pinharanda"),
@@ -201,7 +201,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="caixa-de-desenho", ano="2017–18",
+ slug="caixa-de-desenho", ano="2017–18", capa="wp/2020/06/Leitao-Caixa-Desenho01.jpg", centro=(0.5, 0.85),
  titulo=dict(pt="Caixa de Desenho", en="Drawing Box"),
  onde=dict(pt="Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019",
            en="Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019"),
@@ -231,7 +231,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="paisagem-instavel", ano="2017",
+ slug="paisagem-instavel", ano="2017", capa="ex/capas/paisagem-instavel.jpg",
  titulo=dict(pt="Paisagem Instável", en="Paisagem Instável"),
  onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 25.11.2017–13.01.2018",
            en="Carlos Carvalho Arte Contemporânea, Lisbon, 25.11.2017–13.01.2018"),
@@ -369,7 +369,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="systema-naturae-desenhos", ano="2011–12",
+ slug="systema-naturae-desenhos", ano="2011–12", capa="wp/2017/09/catarinaleitao_sn_inst_007.jpg",
  titulo=dict(pt="Systema Naturæ, desenhos", en="Systema Naturæ, drawings"),
  onde=dict(pt="Carlos Carvalho Arte Contemporânea, Lisboa, 2012", en="Carlos Carvalho Arte Contemporânea, Lisbon, 2012"),
  texto=dict(
