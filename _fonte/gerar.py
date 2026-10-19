@@ -340,11 +340,14 @@ def gerar():
             info = []
             meus = sorted([d for d in DOCS if p["slug"] in d["projectos"]], key=lambda d: d["ordem"], reverse=True)
             txt = [d for d in meus if d["categoria"] == "texto de exposição"]
-            imp = [d for d in meus if d["categoria"] != "texto de exposição"]
+            imp = [d for d in meus if d["categoria"] in ("crítica", "entrevista")]
+            pub = [d for d in meus if d["categoria"] == "publicação"]
             if txt:
                 info.append(f'<section><h2>{t["textos_expo"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in txt)}</ul></section>')
             if imp:
                 info.append(f'<section><h2>{t["imprensa"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in imp)}</ul></section>')
+            if pub:
+                info.append(f'<section><h2>{t["publicacoes"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in pub)}</ul></section>')
             if p.get("video"):
                 v = p["video"]
                 info.append(f'<section><h2>{t["video"]}</h2><ul class="lista"><li><a href="{v["url"]}">{v["url"].split("//")[1]}</a>'
