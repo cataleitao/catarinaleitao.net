@@ -341,7 +341,8 @@ def gerar():
             meus = sorted([d for d in DOCS if p["slug"] in d["projectos"]], key=lambda d: d["ordem"], reverse=True)
             txt = [d for d in meus if d["categoria"] == "texto de exposição"]
             imp = [d for d in meus if d["categoria"] in ("crítica", "entrevista")]
-            pub = [d for d in meus if d["categoria"] == "publicação"]
+            ja = {d["titulo"].split(" (")[0] for d in txt + imp}
+            pub = [d for d in meus if d["categoria"] == "publicação" and d["titulo"] not in ja]
             if txt:
                 info.append(f'<section><h2>{t["textos_expo"]}</h2><ul class="lista">{"".join(item_documento(d, lingua, r) for d in txt)}</ul></section>')
             if imp:
