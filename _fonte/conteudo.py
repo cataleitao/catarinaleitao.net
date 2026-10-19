@@ -323,7 +323,7 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="gabinete", ano="2013–15",
+ slug="gabinete", ano="2013–15", capa="wp/2022/05/Gabinete-museu-de-bolso.jpg",
  titulo=dict(pt="Gabinete", en="Cabinet"),
  onde=dict(pt="", en=""),
  texto=dict(
