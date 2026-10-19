@@ -10,3 +10,16 @@ BIO = dict(
      "She received a joint scholarship from the Fundação Calouste Gulbenkian and the Luso-American Development Foundation (FLAD, 1997–99), as well as grants and fellowships from the Pollock-Krasner Foundation (2001–02) and the New York Foundation for the Arts (2009). She has participated in residency programmes at the Sharpe Foundation (2004–05), Center for Book Arts (2007), and Museu do Caramulo (2025–26).",
      "She holds a PhD in Contemporary Art from the University of Coimbra (2022), an MFA from Hunter College, New York (2000), and a degree in Painting from the University of Lisbon (1993). She taught at ESAD.CR from 2011 to 2024 and currently teaches at the University of Coimbra’s Colégio das Artes and, during the first semester of 2026–27, at the School of Architecture, Art and Design of the University of Minho."],
 )
+
+# Texto em destaque na página Info, logo a seguir à biografia.
+# O excerto é citado tal como publicado na Artecapital (29.12.2023).
+DESTAQUE = dict(
+ link="https://www.artecapital.net/entrevista-334-catarina-leitao",
+ titulo="Artificando ou artificializando a Natureza? Viagens e ilusões nas povoações criadas por Catarina Leitão",
+ autor="Inês Ferreira-Norman",
+ onde="Artecapital",
+ data="29.12.2023",
+ excerto="A mim parece-me que Catarina elabora povoamentos híbridos entre entidades naturais e seres artificiais, criando uma cultura que nos teleporta para ou sítios domésticos, frequentemente urbanos, ou imaginários selvagens, tão selvagens que acabam por se tornar alienígenas.",
+ pt=dict(seccao="Em destaque", nota="Texto escrito a partir de uma conversa com a artista no atelier.", ler="Ler na Artecapital"),
+ en=dict(seccao="Featured", nota="An essay written from a conversation with the artist in her studio. In Portuguese.", ler="Read on Artecapital"),
+)

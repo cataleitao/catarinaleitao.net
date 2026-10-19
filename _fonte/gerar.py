@@ -15,7 +15,7 @@ from PIL import Image, ImageOps
 sys.path.insert(0, str(Path(__file__).parent))
 from conteudo import PROJECTOS, BIBLIOTECA, TEXTOS
 from agora import AGORA
-from info import BIO
+from info import BIO, DESTAQUE
 from ao import ao
 
 def PT(lingua, texto):
@@ -306,12 +306,19 @@ def gerar():
             cv_links = "".join(f'<li><a href="{r}docs/{f}" target="_blank" rel="noopener">{t["cv_pt"] if re.search(r"[-_]PT[-_.]", f) else t["cv_en"]}</a> (PDF)<span class="detalhe">{cvs[0]["data"]}</span></li>' for f in fs)
         bio = "".join(f"<p>{x}</p>" for x in BIO[lingua])
         seccoes.append(f'<section id="bio"><h2>{t["bio"]}</h2><div class="sinopse">{bio}</div></section>')
+        if DESTAQUE:
+            dq = DESTAQUE; dl = dq[lingua]
+            seccoes.append(f'''<section id="destaque" class="destaque"><h2>{dl["seccao"]}</h2>
+<p class="destaque-titulo" lang="pt"><a href="{dq["link"]}" target="_blank" rel="noopener">{dq["titulo"]}</a></p>
+<p class="detalhe">{dq["autor"]} · <cite>{dq["onde"]}</cite> · {dq["data"]}</p>
+<blockquote lang="pt"><p>{dq["excerto"]}</p></blockquote>
+<p class="detalhe">{dl["nota"]} <a href="{dq["link"]}" target="_blank" rel="noopener">{dl["ler"]} ↗</a></p></section>''')
         if cv_links:
             seccoes.append(f'<section id="cv"><h2>{t["cv"]}</h2><ul class="lista">{cv_links}</ul></section>')
         grupos = [("textos", t["textos_expo"], "texto de exposição"), ("imprensa", t["imprensa"], "crítica"),
                   ("entrevistas", t["entrevistas"], "entrevista"), ("publicacoes", t["publicacoes"], "publicação")]
         for ancora, nome, cat in grupos:
-            ds = sorted([d for d in DOCS if d["categoria"] == cat and d["subtipo"] != "CV"], key=lambda d: d["ordem"], reverse=True)
+            ds = sorted([d for d in DOCS if d["categoria"] == cat and d["subtipo"] != "CV" and not (DESTAQUE and d["link"] == DESTAQUE["link"])], key=lambda d: d["ordem"], reverse=True)
             if ds:
                 seccoes.append(f'<section id="{ancora}"><h2>{nome}</h2><ul class="lista">{"".join(item_documento(d, lingua, r, True) for d in ds)}</ul></section>')
         corpo = f'<div class="info"><h1 class="visualmente-oculto">{t["info"]}</h1>{"".join(seccoes)}</div>'

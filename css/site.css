@@ -388,3 +388,12 @@ figcaption cite { font-style: italic; color: var(--tinta); }
 .info h2 { margin: 0 0 1rem; font-size: var(--t-base); font-weight: 600; }
 .info .sinopse p { margin: 0 0 1em; }
 .lista .detalhe a { color: var(--cinza); }
+
+/* Info: texto em destaque */
+.destaque .destaque-titulo { margin: 0 0 0.3rem; font-size: 1.35rem; line-height: 1.3; }
+.destaque .destaque-titulo a { text-decoration: none; }
+.destaque .destaque-titulo a:hover { text-decoration: underline; }
+.destaque .detalhe { display: block; margin: 0; color: var(--cinza); font-size: var(--t-pequeno); }
+.destaque blockquote { margin: 1.5rem 0; padding-left: 1.25em; border-left: 2px solid var(--tinta); font-size: 1.15rem; line-height: 1.5; }
+.destaque blockquote p { margin: 0; }
+.destaque cite { font-style: italic; }
