@@ -201,15 +201,15 @@ dict(
 
 # ------------------------------------------------------------------
 dict(
- slug="caixa-de-desenho", ano="2017–18", capa="wp/2020/06/Leitao-Caixa-Desenho01.jpg", centro=(0.5, 0.85),
+ slug="caixa-de-desenho", ano="2016–19", capa="wp/2020/06/Leitao-Caixa-Desenho01.jpg", centro=(0.5, 0.85),
  titulo=dict(pt="Caixa de Desenho", en="Drawing Box"),
- onde=dict(pt="Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019",
-           en="Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019"),
+ onde=dict(pt="Atelier-Museu António Duarte, Caldas da Rainha, 2016 · Casa de la Grisa, Sabiote, 2017 · Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019",
+           en="Atelier-Museu António Duarte, Caldas da Rainha, 2016 · Casa de la Grisa, Sabiote, Spain, 2017 · Quase Galeria, Porto, 2017 · Drawing Room, Madrid, 2018 · Fundação Eugénio de Almeida, Évora, 2019"),
  texto=dict(
   pt=["<cite>Caixa de Desenho</cite>, 2018. Madeira, MDF, papel, tinta acrílica, fio de algodão, dimensões variáveis (aprox. 250x300x200 cm).",
-      "A primeira <cite>Caixa de Desenho</cite> foi mostrada em 2017 na Quase Galeria, no Porto, numa exposição com curadoria de Fátima Lambert."],
+      "A <cite>Caixa de Desenho</cite> foi mostrada pela primeira vez em 2016, no Atelier-Museu António Duarte, nas Caldas da Rainha. Em 2017 esteve em <cite>Intervenciones 4</cite>, com curadoria de Isidro Blasco, na Casa de la Grisa, em Sabiote (Espanha), e, nesse mesmo ano, numa versão diferente, na Quase Galeria, no Porto, numa exposição com curadoria de Fátima Lambert. Uma quarta versão foi apresentada na Drawing Room, em Madrid, em 2018, com a Carlos Carvalho Arte Contemporânea, e uma quinta em <cite>Studiolo XXI</cite>, de novo com curadoria de Fátima Lambert, na Fundação Eugénio de Almeida, em Évora, em 2019."],
   en=["<cite>Drawing Box</cite>, 2018. Wood, MDF, watercolor paper, acrylic ink, cotton thread, variable dimensions (approx. 250x300x200 cm).",
-      "The first <cite>Drawing Box</cite> was shown in 2017 at Quase Galeria, Porto, in an exhibition curated by Fátima Lambert."]),
+      "The <cite>Drawing Box</cite> was first shown in 2016 at the Atelier-Museu António Duarte in Caldas da Rainha. In 2017 it was included in <cite>Intervenciones 4</cite>, curated by Isidro Blasco, at the Casa de la Grisa in Sabiote, Spain, and that same year, in a different version, at Quase Galeria in Porto, in an exhibition curated by Fátima Lambert. A fourth version was shown at Drawing Room in Madrid in 2018 with Carlos Carvalho Arte Contemporânea, and a fifth in <cite>Studiolo XXI</cite>, again curated by Fátima Lambert, at the Fundação Eugénio de Almeida in Évora in 2019."]),
  textos=["lambert-caixa"],
  imagens=[
   ("wp/2018/09/2018-drawingbox-madrid1ad.jpg", "<cite>Caixa de Desenho</cite>, 2018, pormenor. Vista na Drawing Room, Madrid.", "<cite>Drawing Box</cite>, 2018, detail. View at Drawing Room, Madrid.", None),
@@ -226,7 +226,7 @@ dict(
   ("wp/2020/06/Leitao-Caixa-Desenho01.jpg", "<cite>Caixa de Desenho 1</cite>, 2017.", "<cite>Drawing Box 1</cite>, 2017.", None),
   ("wp/2017/09/caixa-de-desenho_0034.jpg", "<cite>Caixa de Desenho 1</cite>, 2017.", "<cite>Drawing Box 1</cite>, 2017.", None),
  ],
- rever=["segundo parágrafo (escrito de novo, factual)"],
+ rever=["segundo parágrafo reescrito a 19.10.2026 a partir das indicações da Catarina e do CV"],
 ),
 
 # ------------------------------------------------------------------
@@ -242,7 +242,7 @@ dict(
  imagens=[
   ("wp/2018/01/catarina-leitao_paisagem-instavel-vista1.jpg", "Vista da exposição <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisboa, 2017.", "Installation view, <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisbon, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-5a.jpg", "<cite>Paisagem Instável #5</cite>, 2017.", "<cite>Paisagem Instável #5</cite>, 2017.", None),
-  ("wp/2018/01/catarina-leitao_paisagem-instavel-8.jpg", "<cite>Paisagem Instável #8</cite>, 2017.", "<cite>Paisagem Instável #8</cite>, 2017.", None),
+  ("ex/capas/paisagem-instavel.jpg", "<cite>Paisagem Instável #8</cite>, 2017. Coleção de Arte Contemporânea do Estado. Apresentada em <cite>Unstable Landscape: Works from the Portuguese Contemporary Art Collection and the Millennium bcp Collection</cite>, Fundação FOSUN, Xangai, 2025.", "<cite>Paisagem Instável #8</cite>, 2017. Portuguese Contemporary Art Collection (Coleção de Arte Contemporânea do Estado). Shown in <cite>Unstable Landscape: Works from the Portuguese Contemporary Art Collection and the Millennium bcp Collection</cite>, Fundação FOSUN, Shanghai, 2025.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-3.jpg", "<cite>Paisagem Instável #3</cite>, 2017.", "<cite>Paisagem Instável #3</cite>, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-6.jpg", "<cite>Paisagem Instável #6</cite>, 2017.", "<cite>Paisagem Instável #6</cite>, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-1.jpg", "<cite>Paisagem Instável #1</cite>, 2017.", "<cite>Paisagem Instável #1</cite>, 2017.", None),
