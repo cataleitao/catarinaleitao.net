@@ -242,7 +242,7 @@ dict(
  imagens=[
   ("wp/2018/01/catarina-leitao_paisagem-instavel-vista1.jpg", "Vista da exposição <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisboa, 2017.", "Installation view, <cite>Paisagem Instável</cite>, Carlos Carvalho Arte Contemporânea, Lisbon, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-5a.jpg", "<cite>Paisagem Instável #5</cite>, 2017.", "<cite>Paisagem Instável #5</cite>, 2017.", None),
-  ("wp/2018/01/catarina-leitao_paisagem-instavel-8.jpg", "<cite>Paisagem Instável #8</cite>, 2017.", "<cite>Paisagem Instável #8</cite>, 2017.", None),
+  ("ex/capas/paisagem-instavel.jpg", "<cite>Paisagem Instável #8</cite>, 2017. Coleção de Arte Contemporânea do Estado. Apresentada em <cite>Unstable Landscape: Works from the Portuguese Contemporary Art Collection and the Millennium bcp Collection</cite>, Fundação FOSUN, Xangai, 2025.", "<cite>Paisagem Instável #8</cite>, 2017. Portuguese Contemporary Art Collection (Coleção de Arte Contemporânea do Estado). Shown in <cite>Unstable Landscape: Works from the Portuguese Contemporary Art Collection and the Millennium bcp Collection</cite>, Fundação FOSUN, Shanghai, 2025.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-3.jpg", "<cite>Paisagem Instável #3</cite>, 2017.", "<cite>Paisagem Instável #3</cite>, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-6.jpg", "<cite>Paisagem Instável #6</cite>, 2017.", "<cite>Paisagem Instável #6</cite>, 2017.", None),
   ("wp/2018/01/catarina-leitao_paisagem-instavel-1.jpg", "<cite>Paisagem Instável #1</cite>, 2017.", "<cite>Paisagem Instável #1</cite>, 2017.", None),
